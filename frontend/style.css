@@ -1,0 +1,240 @@
+/* ---------- THEMES (switch by putting class on <body>) ---------- */
+:root {
+  /* fallback defaults */
+  --bg: #f8f8f8;
+  --nav1: #007ac2; 
+  --nav2: #0b5a8e;
+  --card: #ffffff;
+  --card-head: #f2f2f2;
+  --text: #1f2328;
+  --muted: #6b6f76;
+  --primary: #007ac2;
+  --primary-hover: #055e97;
+  --accent: #2b8a3e; /* used sparingly */
+  --border: rgba(0,0,0,.08);
+
+  /* class-break colors (leave as-is if you like your legend) */
+  --c1:#f7efe6; --c2:#f1d5b9; --c3:#e8a870; --c4:#d57b45; --c5:#b4532a;
+}
+
+/* ---------- BASE USING TOKENS ---------- */
+body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; background: var(--bg); color: var(--text); }
+
+/* Navbar */
+.navbar {
+  background: linear-gradient(90deg, var(--nav2), var(--nav1));
+  color: #fff;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+}
+
+.navbar a:hover {
+  color: #e9f6ff;
+}
+
+.navbar.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background: linear-gradient(90deg, var(--nav1), var(--nav2));
+}
+
+.navbar.center .navbar-title {
+  font-family: "Merriweather Sans", sans-serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 0.3px;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.25);  /* subtle depth */
+}
+
+.navbar.center .navbar-logo {
+  height: 45px; /* balanced with smaller text */
+}
+
+.badge-step {
+  font-size: .65rem;
+  font-weight: 500;
+  border-radius: .35rem;
+}
+.form-text .bi-info-circle {
+  font-size: .9rem;
+  opacity: .8;
+}
+
+.logo-group {
+  background: #f2f1f4;
+  opacity: 0.9;
+  border-radius: 4px;
+  padding: 3px 6px;
+}
+
+/* Hazard buttons: solid, readable by default */
+.hazard-group .hazard-btn {
+  background: #f8f9fa;              /* light grey chip */
+  border: 1px solid #cfd3d7;
+  color: #1f2937;                    /* dark text */
+  font-weight: 500;
+  padding: .375rem .75rem;
+  border-radius: .5rem;
+  opacity: 1;                        /* override any inherited dimming */
+}
+
+/* Hover state */
+.hazard-group .hazard-btn:hover {
+  background: #e8edf3;
+  color: #111827;
+}
+
+/* Selected hazard */
+.hazard-group .hazard-btn.active {
+  background: #1b76b2;               /* your brand blue */
+  border-color: #1b76b2;
+  color: #fff;
+  font-weight: 600;
+}
+
+/* Non-selected hazards AFTER a choice */
+.hazard-group .hazard-btn.muted {
+  color: #6b7280;
+  opacity: .6;
+}
+
+/* Cards */
+.card { background: var(--card); border:1px solid var(--border); border-radius:8px; box-shadow: 0 4px 12px rgba(0,0,0,.04); }
+.card-header { background: var(--card-head); border-bottom:1px solid var(--border); font-weight:600; }
+
+/* Buttons */
+.btn-primary { background: var(--primary); border-color: var(--primary); }
+.btn-primary:hover { background: var(--primary-hover); border-color: var(--primary-hover); }
+.btn:focus { box-shadow: 0 0 0 .2rem color-mix(in srgb, var(--primary) 35%, transparent); }
+
+/* Accordion */
+.accordion-button { background:#fff; color:var(--text); }
+.accordion-button:not(.collapsed) { background:#f8fafb; color:var(--nav2); }
+
+/* Map + Legend */
+/* Map grows to fill the right column */
+.stretch-card { height: 100%; }
+.map {
+  height: calc(100vh - 160px);  /* safe default for smaller screens */
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: #e5e7eb;
+}
+@media (min-width: 992px) {
+  .col-lg-9 {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 96px); /* nav + spacing */
+  }
+  .stretch-card .card-body { display:flex; }
+  .stretch-card .map { flex: 1 1 auto; height: auto; } /* map fills when table hidden */
+}
+.legend {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.04);
+  padding: 8px;
+  font-size: 14px;
+  line-height: 1.2;
+  color: var(--text);
+}
+.legend-title { font-weight: 600; margin-bottom: 4px; }
+.legend-scale { display: flex; align-items: center; }
+.legend-labels { display: flex; justify-content: space-between; width: 100%; margin-top: 4px; }
+.legend-labels span { font-size: 12px; color: var(--muted); }
+.legend-scale div { height: 12px; flex: 1; border: 1px solid var(--border); }
+/* ---------- CUSTOM ---------- */
+/* Scrollable table */
+.table-responsive { max-height: 300px; overflow-y: auto; }
+.table thead th { position: sticky; top: 0; background: var(--card-head); }
+.table tbody tr:hover { background: rgba(0,0,0,.03); cursor: pointer; }
+/* Smaller text for dense tables */
+.table-sm th, .table-sm td { padding: .3rem; font-size: .85rem; }
+/* Highlight selected row */
+.table .selected { background: var(--primary); color: #fff; }
+.table .selected:hover { background: var(--primary-hover); color: #fff; }
+/* Smaller text for dense tables */
+.table-sm th, .table-sm td { padding: .3rem; font-size: .85rem; }
+/* Highlight selected row */
+.table .selected { background: var(--primary); color: #fff; }
+.table .selected:hover { background: var(--primary-hover); color: #fff; }
+/* Form elements */
+.form-control, .form-select { border: 1px solid var(--border); border-radius  : 6px; }
+.form-control:focus, .form-select:focus { box-shadow: 0 0 0 .2rem color-mix(in srgb, var(--primary) 35%, transparent); border-color: var(--primary); }
+/* Tooltips */
+.tooltip-inner { background: var(--text); color: #fff; font-size: 12px; }
+.tooltip-arrow::before { border-top-color: var(--text); }
+/* Modal */
+.modal-content { border-radius: 8px; border: 1px solid var(--border); }
+.modal-header { border-bottom: 1px solid var(--border); }
+.modal-footer { border-top: 1px solid var(--border); }
+/* Form switches */
+.form-switch .form-check-input { border: 1px solid var(--border); }
+.form-switch .form-check-input:checked { background: var(--primary); border-color: var(--primary); }
+/* Utility classes */
+.text-muted { color: var(--muted) !important; }
+.text-primary { color: var(--primary) !important; }
+.border-primary { border-color: var(--primary) !important; }
+.bg-primary { background: var(--primary) !important; color: #fff !important; }
+.bg-accent { background: var(--accent) !important; color: #fff !important; }
+.rounded { border-radius: 8px !important; }
+.shadow-sm { box-shadow: 0 1px 3px rgba(0,0,0,.1) !important; }
+.shadow { box-shadow: 0 4px 12px rgba(0,0,0,.04) !important; }
+/* ---------- LAYOUT FIXES ---------- */
+/* Ensure full height columns on large screens */
+@media (min-width: 992px) {
+  .col-lg-3, .col-lg-9 { display: flex; flex-direction: column; }
+  .col-lg-3 > .card, .col-lg-9 > .card { flex: 1 1 auto; }
+  .col-lg-3 .card-body, .col-lg-9 .card-body { display: flex; flex-direction: column; }
+  /* Sidebar content scrolls if too tall */
+  .col-lg-3 .card-body { overflow-y: auto; }
+}
+/* Fix for nested scrollable areas */
+/* From https://stackoverflow.com/a/29833678 */
+.scrollable { overflow: auto; -webkit-overflow-scrolling: touch; }
+.scrollable > * { pointer-events: none; }
+.scrollable:hover > * { pointer-events: auto; }
+/* Fix for Bootstrap 5 modals on iOS */
+/* From https://stackoverflow.com/a/58091835 */
+.modal-open { position: fixed; width: 100%; }
+/* Fix for Leaflet map in Bootstrap tab */
+/* From https://stackoverflow.com/a/24392208 */
+.tab-pane { overflow: hidden; }
+.tab-pane .map { width: 100%; }
+/* Fix for Bootstrap 5 dropdowns in modals */
+/* From https://stackoverflow.com/a/59636176 */
+.modal { overflow: visible; }
+/* Fix for Bootstrap 5 tooltips in modals */
+/* From https://stackoverflow.com/a/59636176 */
+.modal { overflow: visible; }
+/* Fix for Bootstrap 5 popovers in modals */
+/* From https://stackoverflow.com/a/59636176 */
+.modal { overflow: visible; }
+/* Fix for Bootstrap 5 popovers in modals */
+/* From https://stackoverflow.com/a/59636176 */
+.modal { overflow: visible; }
+/* ---------- IGNORE ---------- */
+/* Temporary fix for overlapping scrollbars in Chrome */
+/* From https://stackoverflow.com/a/47602883 */
+body::-webkit-scrollbar { width: 12px; }
+body::-webkit-scrollbar-track { background: transparent; }
+body::-webkit-scrollbar-thumb { background-color: rgba(0,0,0,.1); border-radius: 6px; border: 3px solid transparent; background-clip: content-box; }
+body::-webkit-scrollbar-thumb:hover { background-color: rgba(0,0,0,.2); }
+/* Fix for Bootstrap 5 dropdowns in modals */
+/* From https://stackoverflow.com/a/59636176 */
+.modal { overflow: visible; }
+/* Fix for Bootstrap 5 tooltips in modals */
+/* From https://stackoverflow.com/a/59636176 */
+.modal { overflow: visible; }
+/* Fix for Bootstrap 5 popovers in modals */
+/* From https://stackoverflow.com/a/59636176 */
+.modal { overflow: visible; }
+/* ---------- END IGNORE ---------- */  
