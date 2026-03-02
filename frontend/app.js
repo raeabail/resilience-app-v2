@@ -1,3 +1,54 @@
+// =================== ANIMATED COUNTER ===================
+// Counter animation for hero stats
+function animateCounter(element, target, duration = 2000) {
+  const start = 0;
+  const increment = target / (duration / 16); // 60fps
+  let current = start;
+  
+  const updateCounter = () => {
+    current += increment;
+    if (current < target) {
+      element.textContent = Math.floor(current);
+      requestAnimationFrame(updateCounter);
+    } else {
+      element.textContent = target;
+    }
+  };
+  
+  updateCounter();
+}
+
+// Initialize counter animation when stats come into view
+function initCounterAnimation() {
+  const statsSection = document.querySelector('.hero-stats');
+  if (!statsSection) return;
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const statNumbers = entry.target.querySelectorAll('.stat-number');
+        statNumbers.forEach((el, index) => {
+          const target = parseInt(el.getAttribute('data-target'));
+          // Stagger the start of each counter slightly
+          setTimeout(() => {
+            animateCounter(el, target);
+          }, index * 100);
+        });
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  
+  observer.observe(statsSection);
+}
+
+// Initialize on DOM load
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initCounterAnimation);
+} else {
+  initCounterAnimation();
+}
+
 // =================== CONFIG ===================
 const HAZARDS = {
   drought: {
@@ -191,12 +242,73 @@ function apiBase() {
 // ===== Global app state
 const APP = { hazard:null, boundaryFile:null, inputs:{}, analyses:[], weights:{} };
 let STEP = {}; // filled after DOM is ready
+const STEP_COMPLETE = { 1: false, 2: false, 3: false, 4: false, 5: false, 6: false };
+
+// ====== Step Completion & Progress Tracking ======
+function updateStepStatus(stepNum, isComplete) {
+  STEP_COMPLETE[stepNum] = isComplete;
+  const statusEl = document.getElementById(`status-${stepNum}`);
+  if (statusEl) {
+    statusEl.className = 'step-status ' + (isComplete ? 'complete' : 'incomplete');
+  }
+  updateProgressBar();
+  saveProgress();
+}
+
+function updateProgressBar() {
+  const completed = Object.values(STEP_COMPLETE).filter(v => v).length;
+  const percentage = (completed / 6) * 100;
+  const progressBar = document.querySelector('.progress-bar');
+  const currentStepEl = document.getElementById('currentStep');
+  
+  if (progressBar) {
+    progressBar.style.width = percentage + '%';
+  }
+  if (currentStepEl) {
+    // Find the first incomplete step
+    for (let i = 1; i <= 6; i++) {
+      if (!STEP_COMPLETE[i]) {
+        currentStepEl.textContent = i;
+        break;
+      }
+    }
+  }
+}
+
+function saveProgress() {
+  const state = {
+    hazard: APP.hazard,
+    boundaryFile: APP.boundaryFile ? APP.boundaryFile.name : null,
+    inputs: Object.keys(APP.inputs).map(k => APP.inputs[k]?.name || null),
+    analyses: APP.analyses,
+    weights: APP.weights,
+    stepComplete: STEP_COMPLETE
+  };
+  localStorage.setItem('resilience-tool-state', JSON.stringify(state));
+}
+
+function loadProgress() {
+  const saved = localStorage.getItem('resilience-tool-state');
+  if (saved) {
+    try {
+      const state = JSON.parse(saved);
+      if (state.hazard) APP.hazard = state.hazard;
+      if (state.stepComplete) {
+        Object.assign(STEP_COMPLETE, state.stepComplete);
+      }
+      return state;
+    } catch (e) {
+      console.warn('Could not load saved progress:', e);
+    }
+  }
+  return null;
+}
 
 // ====== Init once DOM is ready ======
 window.addEventListener('DOMContentLoaded', () => {
   // Build STEP refs now that DOM exists
   STEP = {
-    1: { card: null, body: null },
+    1: { card: document.querySelector('#stepsAcc > .card.shadow-sm') },
     2: { card: $('s2')?.closest('.accordion-item'), body: $('s2') },
     3: { card: $('s3')?.closest('.accordion-item'), body: $('s3') },
     4: { card: $('s4')?.closest('.accordion-item'), body: $('s4') },
@@ -208,9 +320,18 @@ document.getElementById('s6')?.addEventListener('show.bs.collapse', () => {
   buildReview();
 });
 
+  // Load saved progress
+  loadProgress();
+
   // Initial lock visuals
   setLocked(2, true); setLocked(3, true); setLocked(4, true); setLocked(5, true);
   setOk(1,false); setOk(2,false); setOk(3,false); setOk(4,false); setOk(5,false);
+
+  // Initialize tooltips
+  const tooltipElements = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+  tooltipElements.forEach(el => {
+    new bootstrap.Tooltip(el);
+  });
 
   // Build hazard buttons (exactly once)
   buildHazardButtons();
@@ -220,8 +341,20 @@ document.getElementById('s6')?.addEventListener('show.bs.collapse', () => {
     APP.boundaryFile = e.target.files?.[0] || null;
     const ok = !!APP.boundaryFile;
     setOk(2, ok);
+    updateStepStatus(2, ok);
     setLocked(3, !ok);
     if (ok) openStep(3);
+  });
+
+  // Save button
+  $('btnSave')?.addEventListener('click', () => {
+    saveProgress();
+    const msg = $('runMsg');
+    if (msg) {
+      msg.textContent = '✓ Progress saved!';
+      msg.style.color = '#10b981';
+      setTimeout(() => { msg.textContent = ''; }, 2000);
+    }
   });
 
   // Map and UI only after DOM ready
@@ -229,6 +362,9 @@ document.getElementById('s6')?.addEventListener('show.bs.collapse', () => {
 
   // Run button
   $('btnRun')?.addEventListener('click', onRunClick);
+
+  // Initialize progress bar
+  updateProgressBar();
 });
 
 // =================== UI helpers ===================
@@ -239,11 +375,19 @@ function setLocked(stepNum, locked) {
 }
 
 function setOk(stepNum, ok) {
-  const headerBtn = STEP[stepNum]?.card?.querySelector('.accordion-button');
-  if (!headerBtn) return;
-  headerBtn.classList.toggle('text-primary', !!ok);
-  headerBtn.classList.toggle('fw-semibold', !!ok);
-  headerBtn.closest('.accordion-item').classList.toggle('step-ok', !!ok);
+  if (stepNum === 1) {
+    // Step 1 is not an accordion, just update the header
+    const cardHeader = STEP[stepNum]?.card?.querySelector('.card-header');
+    if (cardHeader) {
+      cardHeader.classList.toggle('text-primary', !!ok);
+    }
+  } else {
+    const headerBtn = STEP[stepNum]?.card?.querySelector('.accordion-button');
+    if (!headerBtn) return;
+    headerBtn.classList.toggle('text-primary', !!ok);
+    headerBtn.classList.toggle('fw-semibold', !!ok);
+    headerBtn.closest('.accordion-item').classList.toggle('step-ok', !!ok);
+  }
 }
 
 function openStep(stepNum) {
@@ -270,7 +414,6 @@ function buildHazardButtons() {
 
 function switchHazard(key){
   // declare currentHazard properly
-  window.currentHazard = key;
   APP.hazard = key;
 
   // highlight buttons
@@ -291,6 +434,7 @@ function switchHazard(key){
 
   // Gate the workflow
   setOk(1, true);
+  updateStepStatus(1, true);
   setLocked(2, false);
   setLocked(3, true);
   setLocked(4, true);
@@ -390,6 +534,7 @@ function renderDataInputs(){
 
       const anyInput = Object.keys(APP.inputs).length > 0;
       setOk(3, anyInput);
+      updateStepStatus(3, anyInput);
       setLocked(4, !anyInput);
 
       // update review
@@ -406,7 +551,7 @@ function renderAnalyses(){
   box.innerHTML = '';
   APP.analyses = []; // reset
 
-  HAZARDS[currentHazard].analyses.forEach(a=>{
+  HAZARDS[APP.hazard].analyses.forEach(a=>{
     const id = `chk_${a.id}`;
     const row = document.createElement('div');
     row.className = 'form-check mb-1';
@@ -424,6 +569,7 @@ function renderAnalyses(){
       }
       const ok = APP.analyses.length > 0;
       setOk(4, ok);
+      updateStepStatus(4, ok);
       setLocked(5, !ok);      // unlock/lock Step 5 only
       renderWeights();        // keep weights panel synced
       
@@ -462,7 +608,7 @@ function renderWeights(){
   box.appendChild(header);
 
   // Build sliders only for selected analyses
-  const byId = Object.fromEntries(HAZARDS[currentHazard].analyses.map(a=>[a.id,a]));
+  const byId = Object.fromEntries(HAZARDS[APP.hazard].analyses.map(a=>[a.id,a]));
   ids.forEach(id=>{
     const a = byId[id]; if (!a) return;
     const sliderId = `w_${id}`;
@@ -486,6 +632,11 @@ function renderWeights(){
         APP.weights[id] = v;
         $(sliderId+'_pct').textContent = Math.round(v*100) + '%';
         updateWeightsUI();
+        
+        // Mark step 5 as complete if all weights are adjusted
+        const allWeightsSet = ids.every(id => APP.weights[id] != null && APP.weights[id] >= 0);
+        updateStepStatus(5, allWeightsSet);
+        
         buildReview();
       });
   });
@@ -501,6 +652,12 @@ function renderWeights(){
 // Normalize button
 $('btnNormalize').addEventListener('click', ()=>{
   normalizeWeights();
+  
+  // Mark step 5 as complete
+  const ids = APP.analyses.slice();
+  const allWeightsSet = ids.every(id => APP.weights[id] != null && APP.weights[id] >= 0);
+  updateStepStatus(5, allWeightsSet);
+  
   // refresh slider texts
   ids.forEach(id=>{
     const v = clamp01(APP.weights[id] ?? 0);
@@ -554,20 +711,21 @@ function buildReview(){
   const cfg = HAZARDS[APP.hazard] || { label:'—', inputs:[], analyses:[] };
   const hazardLabel = cfg.label;
 
-  // Only show inputs the user actually uploaded
+  // Inputs uploaded
   const selectedInputs = Object.entries(APP.inputs || {})
     .map(([id, f]) => {
       const label = (cfg.inputs || []).find(inp => inp.id === id)?.label || id;
       return `<li>${escapeHtml(label)}: <em>${escapeHtml(f.name)}</em></li>`;
     }).join('');
 
-  // Only show analyses the user checked, with whole-number weights
+  // Analyses + weights
   const rows = APP.analyses.map(id => ({
     id,
     label: (cfg.analyses.find(a=>a.id===id)?.label) || id,
     w: APP.weights[id] ?? 0
   }));
 
+  // ✅ declare once
   const wTotal = weightsSum();
   const totalPct = Math.round(wTotal * 100);
   const totalOk = Math.abs(wTotal - 1) <= 1e-3;
@@ -598,6 +756,15 @@ function buildReview(){
     ${selectedInputs ? `<div class="mb-2"><strong>Inputs</strong><ul class="mb-0">${selectedInputs}</ul></div>` : ''}
     <div class="mb-2"><strong>Analyses & Weights</strong>${analysesHtml}</div>
   `;
+
+  // Step 6 completion
+  const step6Complete =
+    !!APP.hazard &&
+    !!APP.boundaryFile &&
+    APP.analyses.length > 0 &&
+    totalOk;
+
+  updateStepStatus(6, step6Complete);
 }
 
 async function onRunClick(){
@@ -746,4 +913,184 @@ function drawTable(fc){
 
 function escapeHtml(s){
   return s.replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+}
+
+/* =====================================================
+   HERO EFFECTS: STATS COUNTER & PARALLAX
+   ===================================================== */
+
+// Animated Stats Counter
+function animateHeroCounter(element) {
+  const target = parseInt(element.getAttribute('data-target'));
+  const duration = 2000;
+  const increment = target / (duration / 16);
+  let current = 0;
+
+  const updateCounter = () => {
+    current += increment;
+    if (current < target) {
+      element.textContent = Math.floor(current).toLocaleString();
+      requestAnimationFrame(updateCounter);
+    } else {
+      element.textContent = target.toLocaleString();
+    }
+  };
+  updateCounter();
+}
+
+// Parallax Scroll Effect
+function handleParallax() {
+  const heroContent = document.querySelector('[data-parallax]');
+  if (!heroContent) return;
+
+  const scrolled = window.pageYOffset;
+  const rate = parseFloat(heroContent.getAttribute('data-parallax'));
+  heroContent.style.transform = `translateY(${scrolled * rate}px)`;
+}
+
+// Initialize on page load
+let statsAnimated = false;
+const observerOptions = {
+  threshold: 0.5
+};
+
+const statsObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting && !statsAnimated) {
+      const statNumbers = document.querySelectorAll('.stat-number');
+      statNumbers.forEach(stat => animateHeroCounter(stat));
+      statsAnimated = true;
+    }
+  });
+}, observerOptions);
+
+const heroStats = document.querySelector('.hero-stats');
+if (heroStats) {
+  statsObserver.observe(heroStats);
+}
+
+// Parallax on scroll
+window.addEventListener('scroll', handleParallax);
+
+/* =====================================================
+   SURVEY FORM HANDLER
+   ===================================================== */
+document.addEventListener('DOMContentLoaded', function() {
+  const surveyForm = document.getElementById('surveyForm');
+  if (surveyForm) {
+    surveyForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      handleSurveySubmit();
+    });
+  }
+
+  // Smooth scroll for navigation links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href !== '#' && href.length > 1) {
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // Close mobile menu if open
+          const navCollapse = document.getElementById('navbarNav');
+          if (navCollapse && navCollapse.classList.contains('show')) {
+            const bsCollapse = new bootstrap.Collapse(navCollapse);
+            bsCollapse.hide();
+          }
+        }
+      }
+    });
+  });
+
+  // Update active nav link on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+  
+  function updateActiveNav() {
+    let current = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.clientHeight;
+      if (window.scrollY >= sectionTop - 100) {
+        current = section.getAttribute('id');
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === `#${current}`) {
+        link.classList.add('active');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', updateActiveNav);
+  updateActiveNav(); // Initial call
+});
+
+async function handleSurveySubmit() {
+  const surveyMessage = document.getElementById('surveyMessage');
+  const submitBtn = document.querySelector('#surveyForm button[type="submit"]');
+  
+  // Collect form data
+  const formData = {
+    organization: document.getElementById('organization').value,
+    role: document.getElementById('role').value,
+    useCase: document.getElementById('useCase').value,
+    usefulness: document.querySelector('input[name="usefulness"]:checked')?.value,
+    easeOfUse: document.querySelector('input[name="easeOfUse"]:checked')?.value,
+    hazards: Array.from(document.querySelectorAll('input[name="hazards"]:checked')).map(cb => cb.value),
+    suggestions: document.getElementById('suggestions').value,
+    timestamp: new Date().toISOString()
+  };
+
+  // Validate required fields
+  if (!formData.organization || !formData.role || !formData.usefulness || !formData.easeOfUse) {
+    surveyMessage.className = 'alert alert-warning mt-3';
+    surveyMessage.textContent = 'Please fill in all required fields.';
+    surveyMessage.classList.remove('d-none');
+    return;
+  }
+
+  // Disable submit button
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Submitting...';
+
+  try {
+    // In a real implementation, you would send this to your backend
+    // For now, we'll just simulate a successful submission
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    
+    // Uncomment and modify this when you have a backend endpoint:
+    // const response = await fetch(`${window.API_BASE}/survey`, {
+    //   method: 'POST',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify(formData)
+    // });
+    // if (!response.ok) throw new Error('Submission failed');
+
+    // Success
+    surveyMessage.className = 'alert alert-success mt-3';
+    surveyMessage.innerHTML = '<i class="bi bi-check-circle me-2"></i>Thank you for your feedback!';
+    surveyMessage.classList.remove('d-none');
+    
+    // Reset form
+    document.getElementById('surveyForm').reset();
+    
+    // Log to console (for development)
+    console.log('Survey submitted:', formData);
+    
+  } catch (error) {
+    // Error
+    surveyMessage.className = 'alert alert-danger mt-3';
+    surveyMessage.innerHTML = '<i class="bi bi-exclamation-circle me-2"></i>An error occurred. Please try again.';
+    surveyMessage.classList.remove('d-none');
+    console.error('Survey submission error:', error);
+  } finally {
+    // Re-enable submit button
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = '<i class="bi bi-send me-2"></i>Submit Survey';
+  }
 }

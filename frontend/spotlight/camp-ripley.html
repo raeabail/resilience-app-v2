@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Camp Ripley Case Study - Resilience Scorecard</title>
+
+  <!-- Bootstrap + Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../style.css"/>
+</head>
+
+<body>
+
+<!-- Main Navigation -->
+<nav id="mainNav" class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <div class="container-fluid px-4">
+    <div class="navbar-brand d-flex align-items-center gap-2">
+      <a href="https://sentinellandscapes.org/" target="_blank" rel="noopener noreferrer" class="logo-link">
+        <img src="../assets/SL_logo.png" alt="Sentinel Landscapes Logo" height="52px">
+      </a>
+      <a href="../index.html" class="brand-text-link">
+        <span class="fw-bold">The Resilience Scorecard</span>
+      </a>
+    </div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="../index.html"><i class="bi bi-house-door me-1"></i>Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../how-to.html"><i class="bi bi-book me-1"></i>How to Use</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../tool.html"><i class="bi bi-map me-1"></i>Scoring Tool</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="../spotlight.html"><i class="bi bi-star me-1"></i>Spotlight</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../survey.html">
+            <i class="bi bi-clipboard-check me-1"></i>Survey
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main class="py-5" style="padding-top:80px;">
+  <div class="container">
+    <div class="case-hero">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-10 mx-auto text-white">
+            <h1 class="fw-bold">Case Study 1: Camp Ripley Sentinel Landscape</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="case-content">
+        <div class="case-main">
+          <img id="mapPreview" src="../assets/campripley_intro.jpg" alt="Camp Ripley Intro" class="img-fluid rounded mb-3 case-map-preview" loading="eager">
+
+          <!-- UPDATED EXEC SUMMARY -->
+          <div class="exec-summary">
+            <strong>Executive summary:</strong>
+            This case study applies a GIS-based resilience scoring framework to parcels within the 3-mile REPI Agreement area of the Camp Ripley Sentinel Landscape. It identifies where natural infrastructure such as water storage, temperature regulation, and soil stability is strongest, supporting ecosystem function and long-term mission readiness. Results highlight high-performing “resilience anchors” and pinpoint lower-resilience parcels where protection or restoration could deliver the greatest return. The scoring framework is designed to support shared decision-making among REPI partners, counties, conservation districts, NRCS, and other stakeholders by aligning investments with the parcels that most strengthen landscape resilience.
+          </div>
+
+          <div class="metrics-grid" aria-hidden="false">
+            <div class="metric-card">
+              <div class="value">8540</div>
+              <div class="label">Parcels analyzed</div>
+            </div>
+            <div class="metric-card">
+              <div class="value">131,185</div>
+              <div class="label">Acres analyzed</div>
+            </div>
+            <div class="metric-card">
+              <div class="value">14% of parcels</div>
+              <div class="label">Scored high resilience</div>
+            </div>
+            <div class="metric-card">
+              <div class="value">5</div>
+              <div class="label">Hazards analyzed</div>
+            </div>
+          </div>
+
+          <br>
+
+          <!-- UPDATED INTRO NARRATIVE -->
+          <h5 class="mt-3">Why It Matters</h5>
+          <p>Camp Ripley sits within one of central Minnesota’s most intact working landscapes, where forests, wetlands, rivers, farms, and conservation lands function as a connected system. In a Sentinel Landscape, resilience is more than ecological health. It is operational stability and military readiness. Training schedules, infrastructure reliability, and long-term mission capability all depend on landscapes that can absorb stress without losing function.</p>
+
+          <p>Wetlands store floodwater, forests buffer heat, soils regulate infiltration, and intact vegetation reduces erosion. When these systems remain connected, the landscape can withstand drought, extreme heat, flooding, wildfire, and land degradation while continuing to support both ecosystem services and military training operations. In this context, resilience protects natural infrastructure and sustains the environmental conditions that allow Camp Ripley to train, operate, and adapt over time.</p>
+
+          <div class="section-sep" role="separator" aria-hidden="true"></div>
+
+          <h5 class="mt-3">Reading the Landscape</h5>
+          <p>If resilience is about the ability to withstand and recover from stress while sustaining military readiness and ecological function, the next question becomes how to measure that capacity on the ground. Rather than asking only where hazards exist, the analysis asked a deeper question: <em>Where is the land most capable of withstanding them?</em></p>
+
+          <p>In this framework, resilience is not defined by exposure alone. It reflects landscape condition, structure, and connectivity, and the ability to absorb disturbance and maintain function over time. The tool evaluates measurable characteristics such as hydrology, vegetation structure, soils, topography, and disturbance patterns, then summarizes them at the parcel scale to produce transparent, repeatable results.</p>
+
+          <p>Each parcel within the 3-mile REPI Agreement area was evaluated across five hazards:</p>
+          <ul>
+            <li>Drought</li>
+            <li>Extreme heat</li>
+            <li>Riverine flooding</li>
+            <li>Wildfire</li>
+            <li>Land degradation</li>
+          </ul>
+
+          <p>Together, these hazards reveal how exposure and landscape condition interact to shape resilience across space.</p>
+
+          <div class="section-sep" role="separator" aria-hidden="true"></div>
+
+          <!-- UPDATED SECTION: KEY PATTERNS -->
+          <h5 class="mt-3">Key Patterns</h5>
+          <p>Clear spatial patterns emerged across hazards. Parcels near wetland complexes and connected river corridors repeatedly scored higher, reflecting strong hydrologic function and landscape connectivity. Large interior forest blocks also performed consistently well, where intact canopy, lower fragmentation, and stable soils support resistance to drought, extreme heat, and wildfire.</p>
+          <p>In contrast, lower resilience scores clustered along developed corridors, transportation routes, and urbanizing edges. These areas often showed overlapping pressures, including land conversion, impervious surfaces, drainage alteration, and fragmentation. Agricultural frontiers at forest and prairie edges also appeared more vulnerable where soils are disturbed and vegetative cover is reduced.</p>
+          <p>
+            Most importantly, resilience was not uniform. Adjacent parcels with similar land cover sometimes scored very differently depending on soil characteristics, proximity to water, topographic position, and disturbance history. That parcel-level variation is what makes the framework actionable. It clarifies where natural systems are already reinforcing mission stability, where vulnerabilities are concentrated, and where targeted protection or restoration could measurably strengthen the landscape.
+            <span class="text-muted">(<a href="#maps">See maps</a>)</span>
+          </p>
+
+          <div class="section-sep" role="separator" aria-hidden="true"></div>
+
+          <h5 class="mt-3">From Maps to Decisions</h5>
+          <p>
+            Each parcel received a 1–5 resilience score for each hazard, representing its relative capacity to absorb stress while maintaining function. Hazard scores were integrated into a composite resilience index to identify parcels that consistently perform well across multiple hazards.
+          </p>
+
+          <p>
+            The resulting maps highlight stability, not just exposure. Higher-scoring parcels cluster where ecological systems remain connected and intact. Across Camp Ripley, these areas often share several characteristics:
+          </p>
+
+          <ul>
+            <li>Strong hydrologic function, including wetlands and connected riparian corridors</li>
+            <li>Stable vegetation structure with lower fragmentation</li>
+            <li>Soils that support infiltration and moisture storage</li>
+            <li>Fewer indicators of recent disturbance or land conversion</li>
+          </ul>
+
+          <p>
+            Lower-scoring parcels more often reflect fragmentation, altered drainage, land conversion, or development pressure where stressors overlap.
+          </p>
+
+          <p>
+            Practically, the scorecard functions as a decision aid. It identifies resilience anchors worth protecting, restorable parcels where investment could measurably strengthen performance, and edge zones where targeted intervention may reduce future risk.
+          </p>
+
+          <div class="methods-brief mt-3 p-3" style="background:rgba(15,23,42,0.03);border-radius:10px;border:1px solid rgba(15,23,42,0.05);">
+            <strong>Technical details:</strong>
+            <p class="mb-0">
+              The parcel-scale framework adapts the DoD Extreme Conditions Assessment Tool concept to a Sentinel Landscape context. For each hazard, multiple geospatial indicators were summarized to parcels using zonal statistics and converted to standardized 1–5 scores. Hazard scores were combined into a composite index using a weighted scoring approach. Processing was performed in Python and GIS, with outputs provided in GIS-ready and tabular formats.
+            </p>
+          </div>
+          <div class="section-sep" role="separator" aria-hidden="true"></div>
+
+          <!-- UPDATED SECTION: APPLICATIONS -->
+          <h5 class="mt-3">Applications</h5>
+          <p>
+            Camp Ripley’s surrounding lands support more than training operations. They sustain watersheds, wildlife habitat, working farms, forests, and rural communities. By identifying where resilience is strongest and where vulnerabilities concentrate, the scorecard helps partners align protection and restoration with both mission stability and landscape function.
+          </p>
+
+          <p>
+            For military planning, parcel-level resilience scoring helps reinforce compatible land use decisions, prioritize buffer investments, and strengthen natural systems that protect training ranges from drought, flooding, wildfire, and land degradation.
+          </p>
+
+          <p>
+            For conservation partners, the framework supports easement prioritization, habitat corridor planning, restoration targeting, and funding justification using transparent, science-based metrics. Because the methodology is repeatable and adaptable, it also provides a foundation for long-term climate adaptation planning across the broader Sentinel Landscape.
+          </p>
+          <div class="section-sep" role="separator" aria-hidden="true"></div>
+
+          <h5 class="mt-3">What This Means for Camp Ripley</h5>
+          <p class="text-muted">
+            Resilience at Camp Ripley is not evenly distributed across the landscape. It is strongest where wetlands, forests, soils, and working lands remain connected and intact. By translating those conditions into parcel-level scores, the Resilience Scorecard makes resilience visible and actionable. It clarifies where natural systems already reinforce mission readiness, where vulnerabilities are emerging, and where strategic protection or restoration can strengthen both military stability and landscape health over time.
+          </p>
+          <h4 id="maps" class="mt-3">Maps</h4>
+          <p class="text-muted">Open a map to view it full-size.</p>
+
+          <div class="map-gallery mb-3">
+            <div class="d-flex gap-2 flex-wrap">
+              <button class="btn p-0 border-0 gallery-thumb" data-index="0" aria-label="Open map 1">
+                <img src="../assets/CRSL_drought.png" class="rounded" alt="Drought map">
+              </button>
+              <button class="btn p-0 border-0 gallery-thumb" data-index="1" aria-label="Open map 2">
+                <img src="../assets/CRSL_extemp.png" class="rounded" alt="Extreme heat map">
+              </button>
+              <button class="btn p-0 border-0 gallery-thumb" data-index="2" aria-label="Open map 3">
+                <img src="../assets/CRSL_flood.png" class="rounded" alt="Flood map">
+              </button>
+              <button class="btn p-0 border-0 gallery-thumb" data-index="3" aria-label="Open map 4">
+                <img src="../assets/CRSL_wf.png" class="rounded" alt="Wildfire map">
+              </button>
+              <button class="btn p-0 border-0 gallery-thumb" data-index="4" aria-label="Open map 5">
+                <img src="../assets/CRSL_landdeg.png" class="rounded" loading="lazy" alt="Land degradation map">
+              </button>
+            </div>
+          </div>
+
+          <!-- Gallery Modal -->
+          <div class="modal fade" id="campMapModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-dialog-centered">
+              <div class="modal-content bg-transparent border-0">
+                <div class="modal-body p-0">
+                  <div id="campMapCarousel" class="carousel slide" data-bs-ride="false">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img src="../assets/CRSL_drought.png" class="d-block w-100" alt="Drought resilience" loading="lazy">
+                        <div class="carousel-caption-overlay">Parcel-scale drought resilience (buffering capacity and vulnerability context).</div>
+                      </div>
+                      <div class="carousel-item">
+                        <img src="../assets/CRSL_extemp.png" class="d-block w-100" alt="Extreme temperature resilience" loading="lazy">
+                        <div class="carousel-caption-overlay">Extreme temperature resilience based on canopy, water influence, and soil moisture capacity.</div>
+                      </div>
+                      <div class="carousel-item">
+                        <img src="../assets/CRSL_flood.png" class="d-block w-100" alt="Riverine flooding resilience" loading="lazy">
+                        <div class="carousel-caption-overlay">Riverine flooding resilience reflecting wetlands, connectivity, and floodplain exposure.</div>
+                      </div>
+                      <div class="carousel-item">
+                        <img src="../assets/CRSL_wf.png" class="d-block w-100" alt="Wildfire resilience" loading="lazy">
+                        <div class="carousel-caption-overlay">Wildfire resilience based on hazard indicators and exposure context.</div>
+                      </div>
+                      <div class="carousel-item">
+                        <img src="../assets/CRSL_landdeg.png" class="d-block w-100" alt="Land degradation resilience" loading="lazy">
+                        <div class="carousel-caption-overlay">Land degradation resilience reflecting erosion susceptibility, vegetation stability, and aridity context.</div>
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#campMapCarousel" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#campMapCarousel" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+                </div>
+                <div class="modal-footer border-0 justify-content-center">
+                  <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p class="text-muted">Downloads and supporting files are available in the panel to the right.</p>
+        </div>
+
+        <div class="case-sidebar">
+          <div class="sticky">
+
+        <div class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-title">Key Facts</h5>
+            <ul class="case-facts mt-2">
+              <li><strong>Objective:</strong> Identify parcel-scale resilience anchors that strengthen natural infrastructure and long-term mission readiness.</li>
+              
+              <li><strong>Approach:</strong> GIS-based modeling integrates land cover, hydrology, soils, topography, vegetation, and hazard layers into a transparent, repeatable scoring system.</li>
+              
+              <li><strong>Scoring Framework:</strong> Landscape indicators → parcel summaries (zonal statistics) → 1–5 hazard scores → composite resilience index.</li>
+              
+              <li><strong>Study Area:</strong> 8,540 parcels within the 3-mile REPI Agreement area in central Minnesota.</li>
+              
+              <li><strong>Hazards Evaluated:</strong> Drought, extreme heat, riverine flooding, wildfire, and land degradation.</li>
+              
+              <li><strong>Deliverables:</strong> Parcel-level resilience scores and ArcGIS-ready outputs for prioritization, planning, and partner coordination.</li>
+            </ul>
+          </div>
+        </div>
+
+            <div class="frameworks-panel case-downloads mb-3">
+              <div class="panel-header">
+                <strong>Downloads</strong>
+                <div class="small text-muted">Supporting materials for Camp Ripley</div>
+              </div>
+              <div class="mt-3 d-grid gap-2">
+                <a href="../assets/camp-ripley_frameworks.zip" class="btn btn-primary" download><i class="bi bi-file-earmark-zip me-2"></i>Scoring Frameworks (ZIP)</a>
+                <a href="../assets/CRSL_Resiliency_Scoring.pdf" class="btn btn-primary" download><i class="bi bi-file-earmark-pdf me-2"></i>Presentation (PDF)</a>
+                <a href="https://legacyworksgroup.com/content/data-driving-impact-with-raenah-baileynbsp" class="btn btn-primary" target="_blank" rel="noopener noreferrer"><i class="bi bi-newspaper me-2"></i>Article</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="bg-dark text-white py-4">
+  <div class="container">
+    <div class="footer-logos" aria-label="Partner Logos">
+      <span class="footer-logo-link"><img src="assets/camp_ripley_logo.png" alt="Camp Ripley" class="footer-logo"></span>
+      <span class="footer-logo-link"><img src="assets/SL_Lockups_CampRipley_DOW_stacked_top.png" alt="Camp Ripley Sentinel Landscape Partner Lockup" class="footer-logo"></span>
+      <span class="footer-logo-link"><img src="assets/REPI_logo.png" alt="REPI" class="footer-logo"></span>
+      <span class="footer-logo-link"><img src="assets/lwg_logo.png" alt="Land and Water Group" class="footer-logo"></span>
+      <span class="footer-logo-link"><img src="assets/morrison_logo1.png.jpg" alt="Morrison" class="footer-logo"></span>
+      <span class="footer-logo-link"><img src="assets/nrcs_logo.jpg" alt="NRCS" class="footer-logo"></span>
+    </div>
+    <hr class="my-3 bg-white">
+    <div class="text-center text-white-50">
+      <small>&copy; 2026 Sentinel Landscapes. All rights reserved.</small>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+// Wire gallery thumbnails to open modal and jump carousel
+document.addEventListener('DOMContentLoaded', function () {
+  var modalEl = document.getElementById('campMapModal');
+  var carouselEl = document.getElementById('campMapCarousel');
+  var carousel = null;
+  if (carouselEl) {
+    carousel = bootstrap.Carousel.getInstance(carouselEl) || new bootstrap.Carousel(carouselEl, {ride:false});
+  }
+
+  document.querySelectorAll('.gallery-thumb').forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      var idx = Number(btn.getAttribute('data-index') || 0);
+      var modal = new bootstrap.Modal(modalEl);
+      modal.show();
+      // wait a tick then move carousel
+      setTimeout(function(){ if (carousel) carousel.to(idx); }, 50);
+    });
+  });
+
+  // make preview image open first slide
+  var preview = document.getElementById('mapPreview');
+  if (preview) preview.addEventListener('click', function(){
+    var modal = new bootstrap.Modal(modalEl); modal.show();
+    setTimeout(function(){ if (carousel) carousel.to(0); },50);
+  });
+});
+</script>
+</body>
+</html>

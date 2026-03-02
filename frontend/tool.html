@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Scoring Tool - The Resilience Scorecard</title>
+
+  <!-- Bootstrap + Icons + Leaflet (CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" rel="stylesheet"/>
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css"/>
+</head>
+
+<body>
+
+<!-- Main Navigation -->
+<nav id="mainNav" class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <div class="container-fluid px-4">
+    <div class="navbar-brand d-flex align-items-center gap-2">
+      <a href="https://sentinellandscapes.org/" target="_blank" rel="noopener noreferrer" class="logo-link">
+        <img src="assets/SL_logo.png" alt="Sentinel Landscapes Logo" height="52px">
+      </a>
+      <a href="index.html" class="brand-text-link">
+        <span class="fw-bold">The Resilience Scorecard</span>
+      </a>
+    </div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">
+            <i class="bi bi-house-door me-1"></i>Home
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="how-to.html">
+            <i class="bi bi-book me-1"></i>How to Use
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="tool.html">
+            <i class="bi bi-map me-1"></i>Scoring Tool
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="spotlight.html">
+            <i class="bi bi-star me-1"></i>Spotlight
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="survey.html">
+            <i class="bi bi-clipboard-check me-1"></i>Survey
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Progress Indicator -->
+<div class="progress-container">
+  <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+  <div class="progress-text">Step <span id="currentStep">1</span> of 6</div>
+</div>
+
+<div class="container-fluid py-3" style="padding-top: 45px;">
+  <div class="row g-3 tool-layout-row">
+
+    <!-- ===== LEFT: Workflow + Legend ===== -->
+    <div class="col-12 col-lg-3 tool-sidebar">
+      <!-- Workflow -->
+      <div class="card shadow-sm mb-3 h-100">
+        <div class="card-body p-0">
+          <div class="accordion accordion-flush" id="stepsAcc">
+            <!-- Step 1: Choose a Hazard -->
+            <div class="card shadow-sm mb-3">
+              <div class="card-header py-2 d-flex justify-content-between align-items-center">
+                <span class="fw-semibold">Step 1: Choose a Hazard</span>
+                <span class="step-status" id="status-1"></span>
+              </div>
+              <div class="card-body">
+                <small class="text-muted d-block mb-2">Select the climate hazard you want to assess</small>
+                <div class="btn-group flex-wrap gap-2 hazard-group" id="hazardGroup" role="group"></div>
+              </div>
+            </div>
+            <!-- Step 2: Boundary -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="s2h">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#s2" aria-expanded="false" aria-controls="s2">
+                  <span class="flex-grow-1">Step 2: Boundary Layer</span>
+                  <span class="step-status" id="status-2"></span>
+                </button>
+              </h2>
+              <div id="s2" class="accordion-collapse collapse" aria-labelledby="s2h" data-bs-parent="#stepsAcc">
+                <div class="accordion-body">
+                  <label class="form-label" data-bs-toggle="tooltip" title="A shapefile defines your study area boundary. All analyses will be clipped to this boundary.">Upload Boundary Layer (shapefile .zip or GeoJSON) <i class="bi bi-question-circle"></i></label>
+                  <input id="boundaryFile" type="file" accept=".zip,.geojson,.json" class="form-control form-control-sm">
+                  <div class="form-text">Used to clip and table outputs.</div>
+                </div>
+              </div>
+            </div>
+
+           <!-- Step 3: Data Inputs -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="s3h">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#s3" aria-expanded="false" aria-controls="s3">
+                  <span class="flex-grow-1">Step 3: Data Inputs</span>
+                  <span class="step-status" id="status-3"></span>
+                </button>
+              </h2>
+              <div id="s3" class="accordion-collapse collapse" aria-labelledby="s3h" data-bs-parent="#stepsAcc">
+                <div class="accordion-body" id="dataInputs"></div>
+              </div>
+            </div>
+
+            <!-- Step 4: Analyses -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="s4h">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#s4" aria-expanded="false" aria-controls="s4">
+                  <span class="flex-grow-1">Step 4: Analyses</span>
+                  <span class="step-status" id="status-4"></span>
+                </button>
+              </h2>
+              <div id="s4" class="accordion-collapse collapse" aria-labelledby="s4h" data-bs-parent="#stepsAcc">
+                <div class="accordion-body" id="analysesBox"></div>
+              </div>
+            </div>
+
+            <!-- Step 5: Metric Weights -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="s5h">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#s5" aria-expanded="false" aria-controls="s5">
+                  <span class="flex-grow-1">Step 5: Metric Weights</span>
+                  <span class="step-status" id="status-5"></span>
+                </button>
+              </h2>
+              <div id="s5" class="accordion-collapse collapse" aria-labelledby="s5h" data-bs-parent="#stepsAcc">
+                <div class="accordion-body" id="weightsBox"></div>
+              </div>
+            </div>
+
+            <!-- Step 6: Review -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="s6h">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#s6" aria-expanded="false" aria-controls="s6">
+                  <span class="flex-grow-1">Step 6: Review</span>
+                  <span class="step-status" id="status-6"></span>
+                </button>
+              </h2>
+              <div id="s6" class="accordion-collapse collapse" aria-labelledby="s6h" data-bs-parent="#stepsAcc">
+                <div class="accordion-body">
+                  <div id="reviewBox" class="small"></div>
+                </div>
+              </div>
+            </div>
+            </div>
+        </div>
+
+            <div class="card-footer bg-white">
+              <div class="d-grid gap-2">
+                <button id="btnSave" class="btn btn-outline-secondary btn-sm">
+                  <i class="bi bi-download"></i> Save Progress
+                </button>
+                <button id="btnRun" class="btn btn-primary">
+                  <i class="bi bi-play-fill"></i> Run Analysis
+                </button>
+                <a id="btnDownloadToolbox" href="assets/ArcGIS_Toolbox.zip" class="btn btn-outline-primary btn-sm" download>
+                  <i class="bi bi-box-arrow-down"></i> Download ArcGIS Toolbox
+                </a>
+              </div>
+            </div>
+      </div>
+
+ <!-- Legend (hidden until results) -->
+      <div id="legendCard" class="card shadow-sm d-none">
+        <div class="card-header py-2"><span class="fw-semibold">Legend</span></div>
+        <div class="card-body" id="legend"></div>
+      </div>
+    </div> <!-- ← END LEFT COLUMN -->
+
+    <!-- ===== RIGHT: Map + (hidden) Table ===== -->
+    <div class="col-12 col-lg-9">
+      <div class="card shadow-sm mb-3 stretch-card tool-map">
+        <div class="card-header py-2">
+        </div>
+        <div class="card-body p-0">
+          <div id="map" class="map"></div>
+        </div>
+      </div>
+
+      <!-- Attribute table (hidden until data) -->
+      <div id="tableCard" class="card shadow-sm d-none">
+        <div class="card-header py-2"><span class="fw-semibold">Attribute Table</span></div>
+        <div class="card-body p-0">
+          <div class="table-responsive" style="max-height:260px;">
+            <table class="table table-sm table-hover mb-0">
+              <thead id="tblHead"></thead>
+              <tbody id="tblBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div> <!-- ← END RIGHT COLUMN -->
+
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-dark text-white py-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 mb-3 mb-lg-0">
+        <h5>Resilience Scoring Dashboard</h5>
+        <p class="mb-0">
+          A tool developed for Sentinel Landscapes to assess natural infrastructure 
+          and enhance community resilience to climate hazards.
+        </p>
+      </div>
+      <div class="col-lg-3 mb-3 mb-lg-0">
+        <h6>Quick Links</h6>
+        <ul class="list-unstyled">
+          <li><a href="https://sentinellandscapes.org" class="text-white-50" target="_blank">Sentinel Landscapes</a></li>
+          <li><a href="how-to.html" class="text-white-50">Documentation</a></li>
+          <li><a href="survey.html" class="text-white-50">Feedback</a></li>
+          <li><a href="contact.html" class="text-white-50">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3">
+        <h6>Connect</h6>
+        <div class="d-flex gap-3">
+          <a href="#" class="text-white-50"><i class="bi bi-github fs-4"></i></a>
+          <a href="#" class="text-white-50"><i class="bi bi-envelope fs-4"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-logos mt-3" aria-label="Partner Logos">
+      <span class="footer-logo-link"><img src="assets/camp_ripley_logo.png" alt="Camp Ripley" class="footer-logo"></span>
+      <span class="footer-logo-link"><img src="assets/SL_Lockups_CampRipley_DOW_stacked_top.png" alt="Camp Ripley Sentinel Landscape Partner Lockup" class="footer-logo"></span>
+      <span class="footer-logo-link"><img src="assets/REPI_logo.png" alt="REPI" class="footer-logo"></span>
+      <span class="footer-logo-link"><img src="assets/lwg_logo.png" alt="Land and Water Group" class="footer-logo"></span>
+      <span class="footer-logo-link"><img src="assets/morrison_logo1.png.jpg" alt="Morrison" class="footer-logo"></span>
+      <span class="footer-logo-link"><img src="assets/nrcs_logo.jpg" alt="NRCS" class="footer-logo"></span>
+    </div>
+    <hr class="my-3 bg-white">
+    <div class="text-center text-white-50">
+      <small>&copy; 2026 Sentinel Landscapes. All rights reserved.</small>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet-providers@1.13.0/leaflet-providers.js"></script>
+<script>
+  window.API_BASE = "https://miniature-meme-p575xppg799h7757-8080.app.github.dev";
+</script>
+<script src="app.js"></script>
+
+</body>
+</html>

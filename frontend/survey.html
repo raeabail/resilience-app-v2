@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Survey - The Resilience Scorecard</title>
+
+  <!-- Bootstrap + Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css"/>
+</head>
+
+<body>
+
+<!-- Main Navigation -->
+<nav id="mainNav" class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <div class="container-fluid px-4">
+    <div class="navbar-brand d-flex align-items-center gap-2">
+      <a href="https://sentinellandscapes.org/" target="_blank" rel="noopener noreferrer" class="logo-link">
+        <img src="assets/SL_logo.png" alt="Sentinel Landscapes Logo" height="52px">
+      </a>
+      <a href="index.html" class="brand-text-link">
+        <span class="fw-bold">The Resilience Scorecard</span>
+      </a>
+    </div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">
+            <i class="bi bi-house-door me-1"></i>Home
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="how-to.html">
+            <i class="bi bi-book me-1"></i>How to Use
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="tool.html">
+            <i class="bi bi-map me-1"></i>Scoring Tool
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="spotlight.html">
+            <i class="bi bi-star me-1"></i>Spotlight
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="survey.html">
+            <i class="bi bi-clipboard-check me-1"></i>Survey
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Survey Section -->
+<section class="section-survey">
+  <div class="container py-5">
+    <!-- Section Header -->
+    <div class="row mb-5">
+      <div class="col-lg-8 mx-auto text-center">
+        <div class="section-header-accent"></div>
+        <h2 class="display-5 fw-bold mb-3">User Feedback Survey</h2>
+        <p class="lead text-muted">
+          Help us improve the Resilience Scorecard by sharing your experience and suggestions!
+        </p>
+      </div>
+    </div>
+
+    <!-- Survey Form -->
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <div class="survey-form-card">
+          <form id="feedbackForm">
+            <!-- User Information -->
+            <div class="form-section">
+              <h5 class="form-section-title">
+                <i class="bi bi-person-circle me-2"></i>About You
+              </h5>
+              
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label for="userName" class="form-label">Name</label>
+                  <input type="text" class="form-control" id="userName" placeholder="Your name">
+                </div>
+                <div class="col-md-6">
+                  <label for="userEmail" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="userEmail" placeholder="you@example.com">
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="userOrg" class="form-label">Organization</label>
+                <input type="text" class="form-control" id="userOrg" placeholder="Your organization or affiliation">
+              </div>
+
+              <div class="mb-3">
+                <label for="userRole" class="form-label">Role</label>
+                <select class="form-select" id="userRole">
+                  <option selected disabled>Select your role...</option>
+                  <option value="land_manager">Land Manager</option>
+                  <option value="conservation_planner">Conservation Planner</option>
+                  <option value="researcher">Researcher/Scientist</option>
+                  <option value="policy_maker">Policy Maker</option>
+                  <option value="educator">Educator</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Tool Usage -->
+            <div class="form-section">
+              <h5 class="form-section-title">
+                <i class="bi bi-graph-up me-2"></i>Tool Experience
+              </h5>
+
+              <div class="mb-3">
+                <label for="usageFrequency" class="form-label">How often do you use the tool?</label>
+                <select class="form-select" id="usageFrequency">
+                  <option selected disabled>Select frequency...</option>
+                  <option value="first_time">First time user</option>
+                  <option value="occasionally">Occasionally (a few times)</option>
+                  <option value="regularly">Regularly (monthly)</option>
+                  <option value="frequently">Frequently (weekly or more)</option>
+                </select>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Which hazards did you assess?</label>
+                <div class="hazard-checkboxes">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="hazardDrought" value="drought">
+                    <label class="form-check-label" for="hazardDrought">
+                      <i class="bi bi-cloud-drizzle me-1"></i>Drought
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="hazardHeat" value="extreme_heat">
+                    <label class="form-check-label" for="hazardHeat">
+                      <i class="bi bi-thermometer-sun me-1"></i>Extreme Heat
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="hazardFlood" value="flooding">
+                    <label class="form-check-label" for="hazardFlood">
+                      <i class="bi bi-water me-1"></i>Flooding
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="hazardFire" value="wildfire">
+                    <label class="form-check-label" for="hazardFire">
+                      <i class="bi bi-fire me-1"></i>Wildfire
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="hazardDeg" value="land_degradation">
+                    <label class="form-check-label" for="hazardDeg">
+                      <i class="bi bi-layers me-1"></i>Land Degradation
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="easeOfUse" class="form-label">How easy was the tool to use?</label>
+                <div class="rating-scale">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="easeOfUse" id="ease1" value="1">
+                    <label class="form-check-label" for="ease1">1 (Very Difficult)</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="easeOfUse" id="ease2" value="2">
+                    <label class="form-check-label" for="ease2">2</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="easeOfUse" id="ease3" value="3">
+                    <label class="form-check-label" for="ease3">3</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="easeOfUse" id="ease4" value="4">
+                    <label class="form-check-label" for="ease4">4</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="easeOfUse" id="ease5" value="5">
+                    <label class="form-check-label" for="ease5">5 (Very Easy)</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Feedback -->
+            <div class="form-section">
+              <h5 class="form-section-title">
+                <i class="bi bi-chat-left-text me-2"></i>Your Feedback
+              </h5>
+
+              <div class="mb-3">
+                <label for="mostUseful" class="form-label">What did you find most useful?</label>
+                <textarea class="form-control" id="mostUseful" rows="3" 
+                          placeholder="Tell us what features or aspects you found most valuable..."></textarea>
+              </div>
+
+              <div class="mb-3">
+                <label for="improvements" class="form-label">What could be improved?</label>
+                <textarea class="form-control" id="improvements" rows="3" 
+                          placeholder="Share any suggestions for enhancements or new features..."></textarea>
+              </div>
+
+              <div class="mb-3">
+                <label for="additionalComments" class="form-label">Additional Comments</label>
+                <textarea class="form-control" id="additionalComments" rows="4" 
+                          placeholder="Any other feedback, questions, or concerns..."></textarea>
+              </div>
+            </div>
+
+            <!-- Submit -->
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary btn-lg">
+                <i class="bi bi-send-fill me-2"></i>Submit Feedback
+              </button>
+              <button type="reset" class="btn btn-outline-secondary btn-lg">
+                <i class="bi bi-arrow-counterclockwise me-2"></i>Reset Form
+              </button>
+            </div>
+
+            <div id="submitMessage" class="alert d-none mt-3" role="alert"></div>
+          </form>
+        </div>
+
+        <!-- Privacy Notice -->
+        <div class="privacy-notice">
+          <i class="bi bi-shield-check me-2"></i>
+          <small>
+            Your feedback is valuable to us. All responses are confidential and will be used 
+            solely to improve the Resilience Scorecard. We do not share your information with third parties.
+          </small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-dark text-white py-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 mb-3 mb-lg-0">
+        <h5>Resilience Scoring Dashboard</h5>
+        <p class="mb-0">
+          A tool developed for Sentinel Landscapes to assess natural infrastructure 
+          and enhance community resilience to climate hazards.
+        </p>
+      </div>
+      <div class="col-lg-3 mb-3 mb-lg-0">
+        <h6>Quick Links</h6>
+        <ul class="list-unstyled">
+          <li><a href="https://sentinellandscapes.org" class="text-white-50" target="_blank">Sentinel Landscapes</a></li>
+          <li><a href="how-to.html" class="text-white-50">Documentation</a></li>
+          <li><a href="survey.html" class="text-white-50">Feedback</a></li>
+          <li><a href="contact.html" class="text-white-50">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3">
+        <h6>Connect</h6>
+        <div class="d-flex gap-3">
+          <a href="#" class="text-white-50"><i class="bi bi-github fs-4"></i></a>
+          <a href="#" class="text-white-50"><i class="bi bi-envelope fs-4"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-logos mt-3" aria-label="Partner Logos">
+      <span class="footer-logo-link"><img src="assets/camp_ripley_logo.png" alt="Camp Ripley" class="footer-logo"></span>
+      <span class="footer-logo-link"><img src="assets/SL_Lockups_CampRipley_DOW_stacked_top.png" alt="Camp Ripley Sentinel Landscape Partner Lockup" class="footer-logo"></span>
+      <span class="footer-logo-link"><img src="assets/REPI_logo.png" alt="REPI" class="footer-logo"></span>
+      <span class="footer-logo-link"><img src="assets/lwg_logo.png" alt="Land and Water Group" class="footer-logo"></span>
+      <span class="footer-logo-link"><img src="assets/morrison_logo1.png.jpg" alt="Morrison" class="footer-logo"></span>
+      <span class="footer-logo-link"><img src="assets/nrcs_logo.jpg" alt="NRCS" class="footer-logo"></span>
+    </div>
+    <hr class="my-3 bg-white">
+    <div class="text-center text-white-50">
+      <small>&copy; 2026 Sentinel Landscapes. All rights reserved.</small>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Send responses via mailto (client email app)
+  document.getElementById('feedbackForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const getVal = id => document.getElementById(id)?.value?.trim() || '';
+    const hazards = Array.from(document.querySelectorAll('.hazard-checkboxes input:checked'))
+      .map(cb => cb.nextElementSibling?.textContent?.trim() || cb.value)
+      .filter(Boolean);
+    const ease = document.querySelector('input[name="easeOfUse"]:checked')?.value || '';
+
+    const lines = [
+      'Resilience Scorecard Survey Response',
+      '',
+      `Name: ${getVal('userName')}`,
+      `Email: ${getVal('userEmail')}`,
+      `Organization: ${getVal('userOrg')}`,
+      `Role: ${getVal('userRole')}`,
+      '',
+      `Usage frequency: ${getVal('usageFrequency')}`,
+      `Hazards assessed: ${hazards.length ? hazards.join(', ') : 'N/A'}`,
+      `Ease of use: ${ease || 'N/A'}`,
+      '',
+      'Most useful:',
+      getVal('mostUseful') || 'N/A',
+      '',
+      'Improvements:',
+      getVal('improvements') || 'N/A',
+      '',
+      'Additional comments:',
+      getVal('additionalComments') || 'N/A'
+    ];
+
+    const subject = encodeURIComponent('Resilience Scorecard Survey Response');
+    const body = encodeURIComponent(lines.join('\n'));
+    window.location.href = `mailto:raenah@legacyworksgroup.com?subject=${subject}&body=${body}`;
+
+    const messageDiv = document.getElementById('submitMessage');
+    messageDiv.className = 'alert alert-success mt-3';
+    messageDiv.textContent = 'Thanks! Your email client should open with the response details.';
+    messageDiv.classList.remove('d-none');
+  });
+</script>
+
+</body>
+</html>

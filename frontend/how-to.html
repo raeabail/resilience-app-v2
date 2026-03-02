@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>How to Use - The Resilience Scorecard</title>
+
+  <!-- Bootstrap + Icons + Leaflet (CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css"/>
+</head>
+
+<body> 
+
+<!-- Main Navigation -->
+<nav id="mainNav" class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <div class="container-fluid px-4">
+    <div class="navbar-brand d-flex align-items-center gap-2">
+      <a href="https://sentinellandscapes.org/" target="_blank" rel="noopener noreferrer" class="logo-link">
+        <img src="assets/SL_logo.png" alt="Sentinel Landscapes Logo" height="52px">
+      </a>
+      <a href="index.html" class="brand-text-link">
+        <span class="fw-bold">The Resilience Scorecard</span>
+      </a>
+    </div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">
+            <i class="bi bi-house-door me-1"></i>Home
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="how-to.html">
+            <i class="bi bi-book me-1"></i>How to Use
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="tool.html">
+            <i class="bi bi-map me-1"></i>Scoring Tool
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="spotlight.html">
+            <i class="bi bi-star me-1"></i>Spotlight
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="survey.html">
+            <i class="bi bi-clipboard-check me-1"></i>Survey
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ========================================
+     HOW TO USE SECTION
+     ======================================== -->
+<section id="how-to" class="section-how-to">
+  <div class="container py-5">
+    <!-- Section Header with Visual Accent -->
+    <div class="row mb-5">
+      <div class="col-lg-8 mx-auto text-center">
+        <div class="section-header-accent"></div>
+        <h2 class="display-5 fw-bold mb-3">How to Use this Tool</h2>
+        <p class="lead text-muted">Begin by understanding our approach to resilience, then follow the six-step process to assess your landscape and customize frameworks for your priorities.</p>
+      </div>
+    </div>
+
+    <!-- Philosophy & Approach -->
+    <div class="row g-4 align-items-start howto-resources mb-5">
+      <div class="col-12">
+        <div class="frameworks-panel">
+          <div class="panel-header">
+            <div class="panel-tag">Framework</div>
+            <h3 class="h4 fw-bold mb-1">Our Approach to Resilience</h3>
+            <p class="text-muted mb-0">Measuring landscape capacity to absorb stress and maintain function</p>
+          </div>
+          <div class="process-story">
+            <div class="process-story-intro">
+              <p class="process-lede"><b>Resilience</b> is the capacity of a landscape to absorb environmental stress, adapt to changing conditions, maintain essential functions, and recover from disturbance. It's not about preventing change! It's about enabling systems to respond dynamically while preserving the ecological and social processes that communities depend on.</p>
+              <p class="process-body">This tool focuses on <b>5 key hazards</b> with the greatest local impacts: drought, extreme heat, flooding, wildfire, and land degradation. Because each hazard manifests differently across landscapes, our framework adjusts to emphasize the most relevant indicators while remaining fully adaptable to any scale, from parcel to <u>any user-defined boundary layer</u> you upload. As new data, stakeholder input, and regional insights emerge, we continuously refine our approach to ensure scores reflect real-world conditions, not generic assumptions.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <hr class="my-5 opacity-25">
+
+    <!-- Step-by-Step Process -->
+    <div class="row mb-3">
+      <div class="col-lg-8 mx-auto text-center mb-2">
+        <h3 class="h3 fw-bold mb-1">Building Your Assessment</h3>
+        <p class="text-muted">Follow these six steps to evaluate resilience in your landscape.</p>
+      </div>
+    </div>
+
+    <!-- Step Cards Grid -->
+    <div class="row g-4 mb-5">
+      <div class="col-md-6 col-lg-4">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <h4 class="step-title" style="text-align: center;">Select Your Hazard</h4>
+          <p class="step-description" style="text-align: center;">
+            Choose from drought, extreme temperature, flooding, wildfire, or land degradation.
+            Each hazard has specific data inputs and analytical metrics.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <h4 class="step-title" style="text-align: center;">Upload Boundary</h4>
+          <p class="step-description" style="text-align: center;">
+            Define your study area by uploading a shapefile or GeoJSON boundary. 
+            This will clip all analyses to your area of interest.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <h4 class="step-title" style="text-align: center;">Upload Data Inputs</h4>
+          <p class="step-description" style="text-align: center;">
+            Provide relevant spatial datasets such as wetlands, soil data, elevation, 
+            land cover, and other hazard-specific layers.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="step-card">
+          <div class="step-number">4</div>
+          <h4 class="step-title" style="text-align: center;">Configure Analyses</h4>
+          <p class="step-description" style="text-align: center;">
+            Select which analytical metrics to include in your resilience 
+            assessment. Each metric evaluates a different aspect of resilience.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="step-card">
+          <div class="step-number">5</div>
+          <h4 class="step-title" style="text-align: center;">Adjust Weights</h4>
+          <p class="step-description" style="text-align: center;">
+            Fine-tune the relative importance of each metric. Adjust weights 
+            based on local priorities and expert knowledge.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="step-card">
+          <div class="step-number">6</div>
+          <h4 class="step-title" style="text-align: center;">View Results</h4>
+          <p class="step-description" style="text-align: center;">
+            Review your resilience scores on an interactive map with detailed 
+            attribute tables and downloadable outputs for further analysis.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <hr class="my-5 opacity-25">
+
+    <!-- Understanding the Framework Details -->
+    <div class="row mb-4">
+      <div class="col-lg-8 mx-auto text-center mb-2">
+        <h3 class="h3 fw-bold mb-1">Understanding the Framework</h3>
+        <p class="text-muted">Learn how each hazard is evaluated and how resilience scores are calculated.</p>
+      </div>
+    </div>
+    <div class="row g-4 align-items-start howto-resources">
+      <div class="col-12">
+        <div class="frameworks-panel">
+          <div class="hazard-definitions">
+            <div class="definitions-header">
+              <div class="panel-tag">Hazards</div>
+              <h4 class="h5 fw-bold mb-1">Hazard-Specific Resilience</h4>
+              <p class="text-muted mb-0">Not all hazards apply equally to every region. Select those relevant to your landscape and expand each to understand the risk and the features that build resilience against it.</p>
+            </div>
+            <div class="hazard-grid">
+              <details class="hazard-item">
+                <summary class="hazard-summary">
+                  <span class="hazard-name">Drought</span>
+                </summary>
+                <p class="hazard-desc">Drought is a prolonged period of abnormally low rainfall that reduces water availability. Resilient landscapes retain moisture through high soil water capacity, accessible groundwater reserves, and drought-adapted vegetation that maintains water availability even during extended dry periods.</p>
+              </details>
+              <details class="hazard-item">
+                <summary class="hazard-summary">
+                  <span class="hazard-name">Extreme Heat</span>
+                </summary>
+                <p class="hazard-desc">Extreme heat refers to prolonged periods of unusually high temperatures that stress ecosystems and communities. Resilient landscapes buffer temperature extremes through dense canopy shade, proximity to cooling water bodies, and soil moisture that moderates microclimates and protects ecosystems during heat events.</p>
+              </details>
+              <details class="hazard-item">
+                <summary class="hazard-summary">
+                  <span class="hazard-name">Flooding</span>
+                </summary>
+                <p class="hazard-desc">Flooding occurs when water overwhelms drainage systems and covers land that is normally dry. Resilient landscapes absorb and slow excess water through permeable soils, intact floodplains, and natural drainage features that reduce runoff velocity and minimize erosion during storm events.</p>
+              </details>
+              <details class="hazard-item">
+                <summary class="hazard-summary">
+                  <span class="hazard-name">Wildfire</span>
+                </summary>
+                <p class="hazard-desc">Wildfire is uncontrolled combustion that spreads rapidly through vegetation and threatens ecosystems and infrastructure. Resilient landscapes resist fire spread through managed fuel loads, strategic vegetation breaks, and low-risk land cover patterns that limit fire intensity and protect critical assets and habitats.</p>
+              </details>
+              <details class="hazard-item">
+                <summary class="hazard-summary">
+                  <span class="hazard-name">Land Degradation</span>
+                </summary>
+                <p class="hazard-desc">Land degradation is the decline in land quality and productivity due to erosion, vegetation loss, or cumulative stress. Resilient landscapes maintain stability through intact vegetation cover, connected habitats, and minimal soil disturbance that preserves ecosystem function and resists decline over time.</p>
+              </details>
+            </div>
+          </div>
+          <div class="scoring-methodology">
+            <div class="panel-tag">Process</div>
+            <h4 class="h5 fw-bold mb-3">Scoring Methodology</h4>
+            <div class="methodology-intro">
+              <p class="process-bridge">To translate landscape characteristics into actionable scores, the tool follows a consistent analytical process:</p>
+            </div>
+            <ol class="story-steps">
+              <li>Identify the metrics that drive resilience for each hazard.</li>
+              <li>Score every parcel on those metrics using consistent, spatially explicit inputs.</li>
+              <li>Combine scores into a composite and apply context multipliers that reflect regional and landscape characteristics.</li>
+            </ol>
+            <p class="process-footer">After the tool runs, it produces scores ranging from 1 to 5, with 1 indicating very low resilience and 5 indicating very high resilience.</p>
+            <div class="process-note">
+              <h6 class="process-title">Technical Details</h6>
+              <p class="process-text">Analyses clip to your boundary, align to a common CRS, and normalize metrics before weighting. Outputs include map layers, summary scores, and exportable tables for reporting.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <hr class="my-5 opacity-25">
+
+    <!-- Downloadable Resources -->
+    <div class="row mb-3">
+      <div class="col-lg-8 mx-auto text-center mb-2">
+        <h3 class="h4 fw-bold mb-1">Downloadable Resources</h3>
+        <p class="text-muted">Access customizable frameworks and guides to support your resilience assessments and adaptations.</p>
+      </div>
+    </div>
+    <div class="row g-4 align-items-start howto-resources">
+      <div class="col-12">
+        <div class="row g-4 align-items-stretch">
+          <div class="col-lg-8">
+            <div class="frameworks-panel d-flex flex-column h-100">
+              <div class="panel-header">
+                <div class="panel-tag">Templates</div>
+                <h4 class="h5 fw-bold mb-1">Scoring Frameworks</h4>
+                <p class="text-muted mb-0">Use these templates to understand how each hazard's metrics are scored and combined. Customize the frameworks based on your regional conditions, local priorities, and expert knowledge to create your own resilience assessment.</p>
+              </div>
+              <div class="pdf-list">
+                  <a href="#" class="pdf-link">
+                    <span class="word-icon-mini"><i class="bi bi-file-word"></i></span>
+                    <span class="pdf-text">Drought Framework</span>
+                    <span class="pdf-action"><i class="bi bi-download"></i></span>
+                  </a>
+                  <a href="#" class="pdf-link">
+                    <span class="word-icon-mini"><i class="bi bi-file-word"></i></span>
+                    <span class="pdf-text">Extreme Heat Framework</span>
+                    <span class="pdf-action"><i class="bi bi-download"></i></span>
+                  </a>
+                  <a href="#" class="pdf-link">
+                    <span class="word-icon-mini"><i class="bi bi-file-word"></i></span>
+                    <span class="pdf-text">Flooding Framework</span>
+                    <span class="pdf-action"><i class="bi bi-download"></i></span>
+                  </a>
+                  <a href="#" class="pdf-link">
+                    <span class="word-icon-mini"><i class="bi bi-file-word"></i></span>
+                    <span class="pdf-text">Wildfire Framework</span>
+                    <span class="pdf-action"><i class="bi bi-download"></i></span>
+                  </a>
+                  <a href="#" class="pdf-link">
+                    <span class="word-icon-mini"><i class="bi bi-file-word"></i></span>
+                    <span class="pdf-text">Land Degradation Framework</span>
+                    <span class="pdf-action"><i class="bi bi-download"></i></span>
+                  </a>
+                </div>
+                <p class="pdf-note text-muted">Templates are designed for partners and field teams to tailor scoring locally.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="frameworks-panel d-flex flex-column h-100">
+              <div class="panel-header">
+                <div class="panel-tag">Tools</div>
+                <h4 class="h5 fw-bold mb-1">Resilience Scoring Toolbox for ArcGIS Pro</h4>
+                <p class="text-muted mb-0">Run analyses locally in ArcGIS Pro for larger datasets, batch processing, and advanced parameter control.</p>
+              </div>
+              <div class="pdf-list single-col py-2 px-3">
+                <div class="d-grid">
+                  <a href="assets/ArcGIS_Toolbox.zip" class="btn btn-outline-primary btn-sm w-100" download>
+                    <i class="bi bi-box-arrow-down me-2"></i>Download Resilience Scoring Toolbox
+                  </a>
+                </div>
+              </div>
+              <div class="d-flex align-items-start gap-2 mt-2">
+                <div class="fs-3 text-primary"><i class="bi bi-gear-fill"></i></div>
+                <div>
+                  <p class="mb-1"><strong class="small">Quick usage</strong></p>
+                  <ol class="small mb-0">
+                    <li>Download and extract <code>ArcGIS_Toolbox.zip</code>.</li>
+                    <li>Open ArcGIS Pro and add the <code>.tbx</code> to your Catalog.</li>
+                    <li>Run tools using your boundary and input layers; use batch mode for large areas.</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- removed external full-width button; toolbox download sits inside the right panel -->
+      </div>
+    </div>
+    
+    <!-- Divider -->
+    <hr class="my-5 opacity-25">
+    
+    <!-- Best Practices & Tips -->
+    <div class="row mb-3">
+      <div class="col-lg-8 mx-auto text-center mb-2">
+        <h3 class="h4 fw-bold mb-1">Best Practices</h3>
+        <p class="text-muted">Quick guidance to improve data quality and make results more actionable.</p>
+      </div>
+    </div>
+    <div class="row g-4 align-items-start howto-resources">
+      <div class="col-12">
+        <div class="tips-card compact tips-bottom">
+          <div class="tips-icon">
+            <i class="bi bi-lightbulb"></i>
+          </div>
+          <div class="tips-content">
+            <h4 class="h5 fw-bold mb-2">Tips for Best Results</h4>
+            <ul class="tips-list">
+              <li>Ensure all input data uses consistent coordinate systems (recommended: match your boundary layer)</li>
+              <li>Higher resolution data will produce more detailed assessments</li>
+              <li>Consider consulting local experts when adjusting metric weights</li>
+              <li>Use the streamflow permanence data as context to refine scoring where available</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-dark text-white py-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 mb-3 mb-lg-0">
+        <h5>Resilience Scoring Dashboard</h5>
+        <p class="mb-0">
+          A tool developed for Sentinel Landscapes to assess natural infrastructure 
+          and enhance community resilience to climate hazards.
+        </p>
+      </div>
+      <div class="col-lg-3 mb-3 mb-lg-0">
+        <h6>Quick Links</h6>
+        <ul class="list-unstyled">
+          <li><a href="https://sentinellandscapes.org" class="text-white-50" target="_blank">Sentinel Landscapes</a></li>
+          <li><a href="how-to.html" class="text-white-50">Documentation</a></li>
+          <li><a href="survey.html" class="text-white-50">Feedback</a></li>
+          <li><a href="contact.html" class="text-white-50">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3">
+        <h6>Connect</h6>
+        <div class="d-flex gap-3">
+          <a href="#" class="text-white-50"><i class="bi bi-github fs-4"></i></a>
+          <a href="#" class="text-white-50"><i class="bi bi-envelope fs-4"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-logos mt-3" aria-label="Partner Logos">
+      <span class="footer-logo-link"><img src="assets/camp_ripley_logo.png" alt="Camp Ripley" class="footer-logo"></span>
+      <span class="footer-logo-link"><img src="assets/SL_Lockups_CampRipley_DOW_stacked_top.png" alt="Camp Ripley Sentinel Landscape Partner Lockup" class="footer-logo"></span>
+      <span class="footer-logo-link"><img src="assets/REPI_logo.png" alt="REPI" class="footer-logo"></span>
+      <span class="footer-logo-link"><img src="assets/lwg_logo.png" alt="Land and Water Group" class="footer-logo"></span>
+      <span class="footer-logo-link"><img src="assets/morrison_logo1.png.jpg" alt="Morrison" class="footer-logo"></span>
+      <span class="footer-logo-link"><img src="assets/nrcs_logo.jpg" alt="NRCS" class="footer-logo"></span>
+    </div>
+    <hr class="my-3 bg-white">
+    <div class="text-center text-white-50">  
+      <small>&copy; 2026 Sentinel Landscapes. All rights reserved.</small>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
