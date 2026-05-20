@@ -21,30 +21,6 @@ A comprehensive web application for assessing landscape resilience to climate ha
 - **Attribute Tables**: Review detailed scoring data
 - **Export**: Download results for further analysis
 
-## 🚀 Getting Started
-
-### Running Locally
-
-1. Navigate to the frontend directory:
-   ```bash
-   cd frontend
-   ```
-
-2. Serve the files using a simple HTTP server:
-   ```bash
-   python3 -m http.server 8000
-   ```
-
-3. Open your browser to `http://localhost:8000`
-
-### Running with Backend
-
-The application connects to a backend API for geospatial processing. Update the `API_BASE` in `index.html` to point to your backend server.
-
-```javascript
-window.API_BASE = "http://localhost:8080";
-```
-
 ## 📁 Project Structure
 
 ```
