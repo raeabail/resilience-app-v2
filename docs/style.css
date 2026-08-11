@@ -2462,4 +2462,3 @@ body::-webkit-scrollbar-thumb:hover { background-color: rgba(0,0,0,.2); }
 @media (max-width: 576px) {
   .case-map-preview{ max-height: 140px; }
 }
-
