@@ -15,6 +15,108 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="../style.css"/>
+  <style>
+    .map-ref-chip {
+      display: inline-block;
+      margin-left: 0.25rem;
+      padding: 0.12rem 0.45rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 1.25;
+      border: 1px solid transparent;
+      white-space: nowrap;
+    }
+
+    .map-ref-drought {
+      background: #fef3c7;
+      color: #92400e;
+      border-color: #fcd34d;
+    }
+
+    .map-ref-heat {
+      background: #ffedd5;
+      color: #9a3412;
+      border-color: #fdba74;
+    }
+
+    .map-ref-wildfire {
+      background: #fee2e2;
+      color: #991b1b;
+      border-color: #fca5a5;
+    }
+
+    .map-ref-general {
+      background: #e0f2fe;
+      color: #075985;
+      border-color: #7dd3fc;
+      text-decoration: none;
+    }
+
+    .map-card {
+      border: 1px solid rgba(15, 23, 42, 0.12);
+      border-radius: 14px;
+      overflow: hidden;
+      background: #ffffff;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+      height: 100%;
+    }
+
+    .map-card-top {
+      min-height: 110px;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    .map-card-top h6 {
+      margin: 0;
+      font-size: 1.05rem;
+      line-height: 1.3;
+    }
+
+    .map-card-icon {
+      font-size: 1.4rem;
+      opacity: 0.9;
+      flex-shrink: 0;
+    }
+
+    .map-card-drought .map-card-top {
+      background: linear-gradient(145deg, #fef3c7 0%, #fde68a 100%);
+      color: #78350f;
+    }
+
+    .map-card-heat .map-card-top {
+      background: linear-gradient(145deg, #ffedd5 0%, #fdba74 100%);
+      color: #7c2d12;
+    }
+
+    .map-card-wildfire .map-card-top {
+      background: linear-gradient(145deg, #fee2e2 0%, #fca5a5 100%);
+      color: #7f1d1d;
+    }
+
+    .map-card-body {
+      padding: 1rem;
+    }
+
+    .map-card-body p {
+      margin-bottom: 0.8rem;
+    }
+
+    .map-open-btn {
+      font-weight: 600;
+    }
+
+    .case-main .metric-card .value {
+      font-size: 2rem;
+      line-height: 1.05;
+      letter-spacing: 0.01em;
+    }
+  </style>
 </head>
 
 <body>
@@ -113,7 +215,7 @@
 
           <p><em>Which parts of the landscape are best able to continue functioning as water becomes increasingly limited?</em></p>
 
-          <p>Across every hazard evaluated, water repeatedly emerged as the strongest driver of resilience. Parcels associated with groundwater-dependent ecosystems, recharge landscapes, riparian corridors, and perennial water sources consistently supported higher resilience than surrounding uplands.</p>
+          <p>Across every hazard evaluated, water repeatedly emerged as a strong driver of resilience. Parcels associated with groundwater-dependent ecosystems, recharge landscapes, riparian corridors, and persistent water sources consistently supported higher resilience than surrounding landscapes, particularly under drought and extreme heat. The drought assessment makes this pattern especially visible, with higher resilience concentrated around water-dependent systems and landscapes that support water capture and storage. <span class="map-ref-chip map-ref-drought">See drought map</span></p>
 
           <div id="media" class="row g-2 mb-3">
             <div class="col-md-6">
@@ -134,17 +236,20 @@
           <p>Several clear spatial patterns emerged across the assessment.</p>
 
           <ol>
-            <li>
+            <li class="mb-2">
               <strong>Resilience concentrates around water.</strong>
-              The highest resilience scores consistently occur along the San Pedro River corridor, Las Cienegas National Conservation Area, spring complexes, mountain-front recharge zones, and groundwater-dependent ecosystems. These areas function as ecological refugia, maintaining water availability, moderating temperatures, supporting wildlife movement, and sustaining ecosystem function during prolonged drought.
+              Higher resilience is consistently associated with the San Pedro River corridor, Las Cienegas National Conservation Area, spring complexes, mountain-front recharge zones, and groundwater-dependent ecosystems. These areas function as ecological refugia, maintaining water availability, moderating temperatures, supporting wildlife movement, and sustaining ecosystem function during prolonged drought. This pattern is particularly evident in the drought resilience assessment.
+              <span class="map-ref-chip map-ref-drought">See drought map</span>
             </li>
-            <li>
-              <strong>Mountains provide natural thermal refugia.</strong>
-              Higher elevations within the Coronado National Forest consistently scored higher for extreme temperature resilience. Cooler temperatures, greater vegetation cover, and topographic complexity create natural refuges from increasing heat across the basin floor.
+            <li class="mb-2">
+              <strong>Mountains and persistent waterways provide thermal refugia.</strong>
+              Higher elevations within the Coronado National Forest consistently scored higher for extreme temperature resilience, where cooler temperatures, greater vegetation cover, and topographic complexity provide refuge from increasing heat across the basin floor. Persistent waterways also create localized thermal refugia, with areas along perennial and seasonally persistent streams demonstrating greater resilience than surrounding landscapes where surface water is limited. Together, these features stand out against the lower thermal resilience that characterizes much of the basin floor.
+              <span class="map-ref-chip map-ref-heat">See extreme heat map</span>
             </li>
-            <li>
+            <li class="mb-2">
               <strong>Fire is part of a resilient landscape.</strong>
-              Unlike many regions, wildfire is not inherently a sign of low resilience. Much of southeastern Arizona evolved with frequent, low-intensity fire. The assessment found that many grassland, shrubland, and woodland systems retain moderate wildfire resilience because they remain adapted to periodic burning. Lower resilience primarily occurs where wildfire intersects with development, infrastructure, and expanding wildland-urban interface communities.
+              Unlike many regions, wildfire is not inherently a sign of low resilience. Much of southeastern Arizona evolved with frequent, low-intensity fire. The assessment found that many grassland, shrubland, and woodland systems retain moderate wildfire resilience because they remain adapted to periodic burning. Lower resilience occurs where repeated wildfire exposure and other stressors reduce the landscape's capacity to absorb future disturbance, as well as where wildfire intersects with development, infrastructure, and expanding wildland-urban interface communities. The resulting pattern differs substantially from drought and extreme heat, reflecting the region's fire-adapted ecosystems as well as areas with a history of repeated wildfire.
+              <span class="map-ref-chip map-ref-wildfire">See wildfire map</span>
             </li>
             <li>
               <strong>Stress accumulates where multiple pressures overlap.</strong>
@@ -174,15 +279,15 @@
 
           <p>
             These patterns identify where resilience is already functioning at landscape scale and where intervention may have the highest strategic return.
-            <span class="text-muted">(<a href="#media">See photos</a>)</span>
+            <span class="text-muted">(<a href="#maps" class="map-ref-chip map-ref-general">Explore the resilience maps.</a>)</span>
           </p>
 
           <div class="section-sep" role="separator" aria-hidden="true"></div>
 
           <h5 class="mt-3">From Maps to Decisions</h5>
-          <p>Every parcel received a resilience score for each hazard along with a composite resilience index that identifies areas performing consistently well across multiple environmental stressors.</p>
+          <p>Every parcel received a resilience score for each hazard along with a composite resilience index that identifies areas performing consistently well across multiple environmental stressors. Comparing the individual hazard maps also reveals an important feature of landscape resilience: the same parcel may be highly resilient to one stressor while remaining vulnerable to another.</p>
 
-          <p>Rather than identifying where hazards occur, the framework identifies where landscapes are best equipped to withstand them.</p>
+          <p>Rather than identifying where hazards occur, the framework identifies where landscapes are best equipped to withstand them. Viewed together, the maps show where resilience is consistently strong, where vulnerabilities overlap, and where management strategies may need to respond to a specific hazard. <a href="#maps" class="map-ref-chip map-ref-general">Explore the maps below</a></p>
 
           <p>The scorecard helps partners:</p>
           <ul>
@@ -234,6 +339,65 @@
           <p>Together, these systems form the natural infrastructure that supports both mission readiness and landscape resilience.</p>
 
           <p>By translating these interconnected processes into parcel-level scores, the Resilience Scorecard helps partners make informed decisions about where conservation, restoration, and compatible land use can have the greatest long-term impact.</p>
+          <div class="section-sep" role="separator" aria-hidden="true"></div>
+
+          <section id="maps" class="mt-3" aria-labelledby="maps-heading">
+            <h5 id="maps-heading" class="mt-3">Maps</h5>
+            <div class="exec-summary mb-3">
+              <strong>Explore the Resilience Assessment</strong>
+              <p class="mb-0 mt-2">
+                The maps below show parcel-level resilience to each of the three hazards evaluated at Fort Huachuca. Scores represent relative resilience within the assessment area, from Very Low to Very High. Comparing the maps illustrates how different landscape characteristics influence resilience to different environmental stressors.
+              </p>
+            </div>
+
+            <div class="row g-3 mb-2">
+              <div class="col-12 col-md-4">
+                <article class="map-card map-card-drought">
+                  <div class="map-card-top">
+                    <h6>Drought Resilience</h6>
+                    <i class="bi bi-droplet-half map-card-icon" aria-hidden="true"></i>
+                  </div>
+                  <div class="map-card-body">
+                    <p class="small text-muted">Water availability, groundwater-dependent ecosystems, recharge landscapes, and riparian systems contribute to higher drought resilience across portions of the Sentinel Landscape.</p>
+                    <a href="../assets/FHSL_drought.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark btn-sm map-open-btn">
+                      <i class="bi bi-file-earmark-pdf me-1" aria-hidden="true"></i>Open Drought Map
+                    </a>
+                  </div>
+                </article>
+              </div>
+
+              <div class="col-12 col-md-4">
+                <article class="map-card map-card-heat">
+                  <div class="map-card-top">
+                    <h6>Extreme Heat Resilience</h6>
+                    <i class="bi bi-thermometer-sun map-card-icon" aria-hidden="true"></i>
+                  </div>
+                  <div class="map-card-body">
+                    <p class="small text-muted">Thermal resilience is generally lower across the basin floor, while higher elevations, vegetation, topographic complexity, and persistent waterways create important thermal refugia.</p>
+                    <a href="../assets/FHSL_EXT.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark btn-sm map-open-btn">
+                      <i class="bi bi-file-earmark-pdf me-1" aria-hidden="true"></i>Open Extreme Heat Map
+                    </a>
+                  </div>
+                </article>
+              </div>
+
+              <div class="col-12 col-md-4">
+                <article class="map-card map-card-wildfire">
+                  <div class="map-card-top">
+                    <h6>Wildfire Resilience</h6>
+                    <i class="bi bi-fire map-card-icon" aria-hidden="true"></i>
+                  </div>
+                  <div class="map-card-body">
+                    <p class="small text-muted">Wildfire resilience reflects the region's fire-adapted ecosystems, while areas with repeated wildfire exposure show lower resilience, producing a spatial pattern distinct from drought and extreme heat.</p>
+                    <a href="../assets/FHSL_WF.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark btn-sm map-open-btn">
+                      <i class="bi bi-file-earmark-pdf me-1" aria-hidden="true"></i>Open Wildfire Map
+                    </a>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </section>
+
           <div class="section-sep" role="separator" aria-hidden="true"></div>
 
           <h5 class="mt-3">A Living Framework</h5>
@@ -336,7 +500,6 @@
                 <div class="small text-muted">Supporting materials for Fort Huachuca</div>
               </div>
               <div class="mt-3 d-grid gap-2">
-                <a href="#" class="btn btn-primary disabled" aria-disabled="true" tabindex="-1"><i class="bi bi-diagram-3 me-2"></i>Scoring Framework Templates</a>
                 <a href="../assets/Parcel-level Resilience Scoring at FHSL.pptx" class="btn btn-primary" download><i class="bi bi-file-earmark-slides me-2"></i>Presentation (PPTX)</a>
                 <a href="../assets/FortHuachuca_SL_Profile_20260317.pdf" class="btn btn-primary" download><i class="bi bi-file-earmark-pdf me-2"></i>Sentinel Landscape Profile (PDF)</a>
                 <a href="../assets/FortHuachuca_SL_Profile_20260305_2550px_Wide.jpg" class="btn btn-primary" target="_blank" rel="noopener noreferrer"><i class="bi bi-image me-2"></i>Profile Photo (JPG)</a>
