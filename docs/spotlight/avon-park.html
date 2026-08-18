@@ -15,9 +15,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="../style.css"/>
+
+  <!-- Avon Park styles moved to docs/style.css -->
 </head>
 
-<body>
+<body class="case-theme-avon">
 
 <!-- Main Navigation -->
 <nav id="mainNav" class="navbar navbar-expand-lg navbar-dark fixed-top">
@@ -30,10 +32,12 @@
         <span class="fw-bold">The Resilience Scorecard</span>
       </a>
     </div>
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
@@ -49,9 +53,7 @@
           <a class="nav-link active" href="../spotlight.html"><i class="bi bi-star me-1"></i>Spotlight</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../survey.html">
-            <i class="bi bi-clipboard-check me-1"></i>Survey
-          </a>
+          <a class="nav-link" href="../survey.html"><i class="bi bi-clipboard-check me-1"></i>Survey</a>
         </li>
       </ul>
     </div>
@@ -60,253 +62,443 @@
 
 <main class="py-5" style="padding-top:80px;">
   <div class="container">
-    <div class="case-hero">
+
+    <!-- IMMERSIVE HERO -->
+    <div class="case-hero case-hero-avon-park">
       <div class="container">
         <div class="row">
           <div class="col-lg-10 mx-auto text-white">
-            <h1 class="fw-bold">Case Study 2: Avon Park Air Force Range Sentinel Landscape</h1>
+            <h1 class="fw-bold mb-1">
+              Case Study 2: Avon Park Air Force Range Sentinel Landscape
+            </h1>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="container">
-      <div class="case-content">
-        <div class="case-main">
-          <img id="avonMapPreview" src="https://placehold.co/1400x700?text=Avon+Park+Resilience+Overview" alt="APAFRSL overview map" class="img-fluid rounded mb-3 case-map-preview" loading="eager">
+    <div class="case-content">
 
-          <div class="exec-summary">
-            <strong>Executive summary:</strong>
-            <p class="mb-2 mt-2">
-              This case study applies the Resilience Scorecard framework across the Avon Park Air Force Range Sentinel Landscape (APAFRSL) and surrounding Central Florida Regional Planning Council (CFRPC) service area, which includes five counties in Florida's Heartland region. The assessment evaluates landscape resilience to wildfire, flooding, and extreme weather by integrating natural infrastructure, landscape condition, hydrologic function, and hazard exposure into a parcel-scale decision-support framework.
-            </p>
-            <p class="mb-0">
-              Results highlight areas where wetlands, lakes, recharge systems, fire-adapted ecosystems, and other natural landscape features contribute to long-term resilience while also identifying locations where development pressure, infrastructure sensitivity, or environmental vulnerability may increase risk. The framework is intended to support collaborative decision-making among military installations, conservation organizations, local governments, landowners, and regional planning partners.
-            </p>
-          </div>
+      <!-- MAIN CONTENT -->
+      <div class="case-main">
 
-          <div class="metrics-grid" aria-hidden="false">
-            <div class="metric-card">
-              <div class="value">5 counties</div>
-              <div class="label">CFRPC service area</div>
-            </div>
-            <div class="metric-card">
-              <div class="value">Parcel-scale</div>
-              <div class="label">Decision framework</div>
-            </div>
-            <div class="metric-card">
-              <div class="value">Multi-hazard</div>
-              <div class="label">Wildfire, flooding, extreme weather</div>
-            </div>
-            <div class="metric-card">
-              <div class="value">Partner-ready</div>
-              <div class="label">Collaborative planning outputs</div>
-            </div>
-          </div>
+        <!-- LANDSCAPE PREVIEW (wider photo, Fort-style markup) -->
+        <img id="avonMapPreview" src="../assets/150609-F-LM669-248.jpg" alt="Wetlands and lakes landscape preview" class="img-fluid rounded mb-3 case-map-preview show-rainbow" loading="eager">
 
-          <br>
-
-          <h5 class="mt-3">A Landscape Built on Balance</h5>
-          <p>The APAFRSL encompasses one of the most ecologically significant and operationally important regions in central Florida. The landscape supports military readiness, working lands, wildlife habitat, water resources, and rural communities while facing increasing challenges associated with extreme weather, flooding, wildfire, and long-term environmental change.</p>
-
-          <p>Unlike many regions where resilience is dominated by a single environmental challenge, resilience in central Florida is shaped by the interaction of fire, water, weather, and land management. Wetlands store floodwaters, recharge areas support groundwater systems, fire-adapted ecosystems reduce hazardous fuel accumulation, and natural landscapes help absorb and recover from recurring storm impacts. Together, these interconnected systems support military readiness, wildlife habitat, working lands, water resources, and rural communities.</p>
-
-          <p>Within this landscape, resilience is not simply the absence of risk. It is the capacity of natural and working lands to continue supporting military readiness, ecosystem function, and community stability despite ongoing environmental stressors.</p>
-
-          <div class="section-sep" role="separator" aria-hidden="true"></div>
-
-          <h5 class="mt-3">What the Landscape Reveals</h5>
-          <p>Rather than asking only where hazards occur, the resilience scorecard asks a broader question:</p>
-          <p><em>Where is the landscape most capable of withstanding disturbance and maintaining function over time?</em></p>
-          <p>Several consistent patterns emerged across the assessment.</p>
-
-          <ol>
-            <li>
-              <strong>Water builds resilience.</strong>
-              Areas associated with large wetland systems, connected lakes, groundwater recharge areas, and other hydrologically connected landscapes frequently exhibited higher resilience. These features store water, reduce runoff, support groundwater function, and moderate flood impacts during extreme precipitation events.
-            </li>
-            <li>
-              <strong>Stewardship strengthens resilience.</strong>
-              Many large natural landscapes and managed conservation lands demonstrated strong resilience across multiple hazards. Fire-adapted ecosystems and actively managed landscapes frequently exhibited higher wildfire resilience, reflecting the important role of prescribed fire, fuel management, and long-term ecological stewardship throughout central Florida.
-            </li>
-            <li>
-              <strong>Vulnerability emerges where systems overlap.</strong>
-              Areas exhibiting lower resilience often reflected overlapping stressors such as infrastructure sensitivity, altered hydrology, development pressure, impervious surfaces, or repeated exposure to storm impacts. In many cases, vulnerability was driven less by the presence of hazards themselves than by the interaction between hazards and landscape condition.
-            </li>
-            <li>
-              <strong>Every parcel tells a different story.</strong>
-              Perhaps most importantly, resilience was not evenly distributed. Adjacent parcels often exhibited substantially different resilience scores depending on hydrologic connectivity, land cover, soil characteristics, infrastructure proximity, and management history. This parcel-scale variation makes the framework especially valuable for identifying where conservation, restoration, and management actions can have the greatest impact.
-            </li>
-          </ol>
-
-          <div class="section-sep" role="separator" aria-hidden="true"></div>
-
-          <p>
-            These patterns clarify where landscapes are already reinforcing readiness and ecological function, and where targeted action may reduce long-term risk.
-            <span class="text-muted">(<a href="#maps">See maps</a>)</span>
+        <!-- EXECUTIVE SUMMARY -->
+        <section class="ap-summary">
+          <strong>Executive summary:</strong>
+          <p class="mb-2 mt-2">
+            This case study applies the Resilience Scorecard framework across the Avon Park Air Force Range Sentinel Landscape and the surrounding five-county Central Florida Regional Planning Council (CFRPC) service area in Florida's Heartland. The assessment evaluates resilience to wildfire, flooding, and extreme weather by integrating natural infrastructure, landscape condition, hydrologic function, and hazard exposure into a parcel-scale decision-support framework.
           </p>
+          <p class="mb-0">Results highlight where wetlands, lakes, recharge systems, fire-adapted ecosystems, and other natural landscape features contribute to long-term resilience, while also identifying locations where development pressure, infrastructure sensitivity, or environmental vulnerability may increase risk. The framework supports collaborative decision-making among military installations, conservation organizations, local governments, landowners, and regional planning partners.</p>
+        </section>
 
-          <div class="section-sep" role="separator" aria-hidden="true"></div>
+        <!-- LANDSCAPE AT A GLANCE / NAVIGATION RIBBON -->
+        <section aria-label="Landscape at a glance">
+          <div class="small text-uppercase fw-bold text-muted mb-2" style="letter-spacing:.1em;">The Landscape at a Glance</div>
+          <div class="ap-ribbon">
+            <a href="#water">
+              <i class="bi bi-water ap-ribbon-icon"></i>
+              <strong>Flooding</strong>
+              <small>Water needs somewhere to go.</small>
+            </a>
+            <a href="#fire">
+              <i class="bi bi-fire ap-ribbon-icon"></i>
+              <strong>Wildfire</strong>
+              <small>Fire is part of the system.</small>
+            </a>
+            <a href="#weather">
+              <i class="bi bi-cloud-rain-heavy ap-ribbon-icon"></i>
+              <strong>Extreme Weather</strong>
+              <small>Natural systems absorb disturbance.</small>
+            </a>
+            <a href="#stewardship">
+              <i class="bi bi-tree ap-ribbon-icon"></i>
+              <strong>Stewardship</strong>
+              <small>Management changes resilience.</small>
+            </a>
+          </div>
+        </section>
 
-          <h5 class="mt-3">From Maps to Decisions</h5>
-          <p>Each parcel received a resilience score ranging from 1 to 5 for each hazard. Individual hazard scores were then integrated into a composite resilience framework designed to identify areas that consistently perform well across multiple resilience dimensions.</p>
+        <!-- INTRO -->
+        <section class="mb-4">
+          <h2 class="h4">A Landscape Built on Balance</h2>
+          <p>Central Florida is a landscape of contrasts.</p>
+          <p>Water is abundant, but where and how it moves matters. Fire is a recurring disturbance, but many ecosystems depend on it. Severe weather is unavoidable, yet wetlands, forests, working lands, and other natural systems can lessen its impacts.</p>
+          <p>That balance matters well beyond ecological health. The Avon Park Air Force Range Sentinel Landscape encompasses one of the most ecologically significant and operationally important regions in Central Florida, supporting military readiness alongside agriculture, wildlife habitat, water resources, rural communities, and significant natural landscapes.</p>
+          <p>Unlike landscapes where resilience may be dominated by a single hazard, resilience here emerges from the interaction of <strong>fire, water, weather, and land management</strong>.</p>
+          <p class="mb-0">Here, resilience is not the absence of disturbance. <strong>It is the ability of natural and working lands to experience disturbance and continue supporting military readiness, ecosystem function, and community stability.</strong></p>
+        </section>
 
-          <p>Rather than simply identifying where hazards occur, the framework identifies where landscapes are best equipped to withstand them.</p>
+        <!-- WATER CHAPTER -->
+        <section id="water" class="ap-chapter">
+          <div class="ap-chapter-media">
+            <button class="btn p-0 border-0 w-100 photo-thumb" data-index="2" aria-label="Open Kissimmee River corridor photo">
+              <img src="../assets/Kissimmee River3.JPG" alt="Kissimmee River corridor and connected wetlands" loading="lazy">
+            </button>
+          </div>
+          <div class="ap-chapter-copy">
+            <div class="ap-chapter-label">Water</div>
+            <h2>When Water Has Somewhere to Go</h2>
+            <p>Water is one of the clearest expressions of resilience across the landscape.</p>
+            <p>Large wetland systems, connected lakes, groundwater recharge areas, and other hydrologically connected landscapes frequently exhibited higher resilience. These systems provide space for water to move, spread, infiltrate, and be stored rather than immediately becoming runoff.</p>
+            <p>During periods of heavy precipitation, that capacity matters. Wetlands store floodwater, connected hydrologic systems can reduce runoff, and recharge landscapes help maintain groundwater function and moderate flood impacts.</p>
+            <a class="ap-map-link" href="#flood-map">Explore Flood Resilience <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </section>
 
-          <p>The resulting maps help identify:</p>
+        <!-- FIRE CHAPTER -->
+        <section id="fire" class="ap-chapter reverse">
+          <div class="ap-chapter-media">
+            <button class="btn p-0 border-0 w-100 photo-thumb" data-index="4" aria-label="Open prescribed fire photo">
+              <img src="../assets/prescribed-burn-hero.jpg" alt="Prescribed fire management in Central Florida" loading="lazy">
+            </button>
+          </div>
+          <div class="ap-chapter-copy">
+            <div class="ap-chapter-label">Fire</div>
+            <h2>Living With Fire</h2>
+            <p>Fire tells a different story.</p>
+            <p>Many of Central Florida's ecosystems did not develop in the absence of fire. They developed <strong>with it</strong>. Regular burning helps maintain ecological communities, influence vegetation structure, and limit the accumulation of hazardous fuels.</p>
+            <p>Across the assessment, many large natural landscapes and managed conservation lands demonstrated strong resilience across multiple hazards. Fire-adapted ecosystems and actively managed landscapes often exhibited higher wildfire resilience, reflecting the important role of prescribed fire, fuel management, and long-term ecological stewardship throughout Central Florida.</p>
+            <p>The wildfire map therefore captures more than where fire may occur. It helps show where landscape condition and management history have created a greater capacity to live with fire.</p>
+            <a class="ap-map-link" href="#wildfire-map">Explore Wildfire Resilience <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </section>
+
+        <!-- WEATHER CHAPTER -->
+        <section id="weather" class="ap-chapter">
+          <div class="ap-chapter-media">
+            <button class="btn p-0 border-0 w-100 photo-thumb" data-index="1" aria-label="Open wetlands and lakes landscape photo">
+              <img src="../assets/150609-F-LM669-248.jpg" alt="Wetlands and lakes in the Avon Park region" loading="lazy">
+            </button>
+          </div>
+          <div class="ap-chapter-copy">
+            <div class="ap-chapter-label">Weather</div>
+            <h2>Built to Weather the Storm</h2>
+            <p>Central Florida also lives with recurring extreme weather.</p>
+            <p>Hurricanes, tropical systems, intense rainfall, wind, and other severe weather events can affect infrastructure, communities, agriculture, and natural systems across large areas at once. But the consequences of those events are not distributed evenly.</p>
+            <p><strong>Landscape condition matters.</strong></p>
+            <p>Connected natural lands, wetlands, vegetation, soils, and other forms of natural infrastructure can help absorb rainfall, maintain ecological function, and support recovery after disturbance. In other places, infrastructure sensitivity, altered hydrology, impervious surfaces, and repeated storm exposure can compound vulnerability.</p>
+            <a class="ap-map-link" href="#weather-map">Explore Extreme Weather Resilience <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </section>
+
+        <!-- PRESSURE BAND -->
+        <section class="ap-pressure-band">
+          <div class="ap-chapter-label text-white-50">Where Pressures Collide</div>
+          <h2 class="h3 text-white">Resilience changes when pressures overlap.</h2>
+          <p>Some of the most important patterns appear not where a single hazard is strongest, but where development pressure, infrastructure sensitivity, altered hydrology, impervious surfaces, environmental vulnerability, or repeated storm exposure come together.</p>
+          <p>Those differences can occur over surprisingly short distances. Adjacent parcels sometimes received substantially different resilience scores because of differences in hydrologic connectivity, land cover, soil characteristics, proximity to infrastructure, and management history.</p>
+          <p class="mb-0">That is why the parcel scale matters. The maps move the conversation from broad regional vulnerability to a much more practical question:</p>
+          <p class="ap-pressure-question">Where could an action on the ground actually make a difference?</p>
+        </section>
+
+        <!-- STEWARDSHIP -->
+        <section id="stewardship" class="ap-stewardship">
+          <div class="ap-stewardship-photo">
+            <button class="btn p-0 border-0 w-100 h-100 photo-thumb" data-index="5" aria-label="Open working ranch photo">
+              <img src="../assets/C+Ward+Arbuckle+Ranch.webp" alt="Working ranch and pasture in Central Florida" loading="lazy">
+            </button>
+          </div>
+          <div class="ap-stewardship-copy">
+            <div class="ap-chapter-label">Stewardship</div>
+            <h2 class="h3">Stewardship Changes the Map</h2>
+            <p>One of the strongest lessons from the Avon Park Air Force Range Sentinel Landscape is that resilience is not entirely fixed.</p>
+            <p class="fs-5 fw-semibold">Management matters.</p>
+            <p>The Resilience Scorecard is not simply identifying resilient and vulnerable places. It is showing where existing stewardship is already supporting landscape function and where future conservation, restoration, or management could strengthen it.</p>
+
+            <div class="ap-action-grid">
+              <div class="ap-action">
+                <strong>Prescribed fire</strong>
+                <span>Maintains fire-adapted ecosystems and reduces hazardous fuel accumulation.</span>
+              </div>
+              <div class="ap-action">
+                <strong>Wetland protection</strong>
+                <span>Preserves flood-storage capacity and hydrologic function.</span>
+              </div>
+              <div class="ap-action">
+                <strong>Recharge protection</strong>
+                <span>Supports groundwater systems and long-term water function.</span>
+              </div>
+              <div class="ap-action">
+                <strong>Connected working lands</strong>
+                <span>Maintain open space, connectivity, and ecological processes.</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- READINESS / APPLICATIONS -->
+        <section class="ap-readiness">
+          <h2 class="h3">From Resilience to Readiness</h2>
+          <p>Each parcel received a resilience score from 1 to 5 for wildfire, flooding, and extreme weather. Hazard-level scores were then integrated into a composite resilience framework designed to identify areas that consistently perform well across multiple dimensions.</p>
+          <p>Comparing those scores also reveals that resilience is not one condition. A parcel may be well equipped to withstand one type of disturbance while remaining vulnerable to another.</p>
+
+          <p class="fw-semibold mb-2">Viewed together, the maps help partners identify:</p>
           <ul>
             <li>Existing resilience anchors that support long-term landscape function</li>
             <li>Areas where restoration or conservation investments may improve resilience</li>
             <li>Locations where vulnerabilities may warrant additional planning or management attention</li>
-            <li>Resilience investments aligned with military readiness and conservation objectives</li>
+            <li>Natural infrastructure investments that may provide benefits across multiple hazards</li>
+            <li>Opportunities to align resilience investments with military readiness and conservation objectives</li>
           </ul>
+
+          <h3 class="h5 mt-4">Putting the Scorecard to Work</h3>
+          <p>The parcel-scale results can support planning and decision-making well beyond the assessment itself. Potential applications include integration with the Central Florida Regional Planning Council's <strong>Regional Resiliency Toolkit for Inland Governments</strong>, regional resilience planning, conservation prioritization, military readiness and mission support, funding and grant applications, natural infrastructure investments, and partner coordination.</p>
 
           <div class="methods-brief mt-3 p-3" style="background:rgba(15,23,42,0.03);border-radius:10px;border:1px solid rgba(15,23,42,0.05);">
             <strong>Technical details:</strong>
-            <p class="mb-0">
-              The parcel-scale framework adapts the DoD Extreme Conditions Assessment Tool concept to Sentinel Landscape planning. For each hazard, geospatial indicators were summarized to parcels with zonal statistics and converted to standardized 1-5 scores. Hazard scores were then combined into a weighted composite index, with outputs delivered in GIS-ready and tabular formats.
-            </p>
+            <p class="mb-0 mt-1">The parcel-scale framework adapts the DoD Extreme Conditions Assessment Tool concept to Sentinel Landscape planning. Geospatial indicators associated with each hazard were summarized to parcels using zonal statistics and converted to standardized 1–5 resilience scores. Hazard-level scores were then integrated into a weighted composite framework, with outputs available in GIS-ready and tabular formats.</p>
           </div>
-          <div class="section-sep" role="separator" aria-hidden="true"></div>
+        </section>
 
-          <h5 class="mt-3">Applications</h5>
-          <p>The APAFRSL resilience assessment is designed to support collaborative planning across military, conservation, and regional partners. By evaluating multiple hazards within a common parcel-scale framework, the scorecard provides a consistent foundation for identifying shared priorities and coordinating investments.</p>
+        <!-- MAP PAYOFF -->
+        <section id="maps" class="ap-map-section">
+          <div class="ap-chapter-label">Explore the Results</div>
+          <h2 class="display-6 fw-bold">Three Hazards. One Landscape.</h2>
+          <p>Resilience does not look the same everywhere, or for every disturbance. Compare the maps to see how water, fire, landscape condition, management, hazard exposure, and the built environment shape resilience differently across Central Florida.</p>
 
-          <p>Potential applications include:</p>
-          <ul>
-            <li>Integration with the Central Florida Regional Planning Council's Regional Resiliency Toolkit for Inland Governments</li>
-            <li>Regional resilience planning efforts</li>
-            <li>Conservation prioritization</li>
-            <li>Military readiness and mission support</li>
-            <li>Funding and grant applications</li>
-            <li>Natural infrastructure investments</li>
-            <li>Partner coordination and decision support</li>
-          </ul>
-          <div class="section-sep" role="separator" aria-hidden="true"></div>
+          <div class="ap-map-grid">
+            <article id="flood-map" class="ap-map-card">
+              <button class="btn p-0 border-0 map-thumb" data-index="0" aria-label="Open Flood Resilience map">
+                <img src="../assets/APAFRSL_flood.png" alt="Flood Resilience map for the Avon Park Air Force Range Sentinel Landscape" loading="lazy">
+              </button>
+              <div class="ap-map-card-body">
+                <h3>Flood Resilience</h3>
+                <p>When water has somewhere to go. Wetlands, connected water systems, recharge areas, and landscapes capable of storing and moving water contribute to higher flood resilience.</p>
+              </div>
+            </article>
 
-          <h5 class="mt-3">Why It Matters</h5>
-          <p class="text-muted">
-            The resilience assessment demonstrates that many of the landscape features supporting military readiness, agricultural productivity, and ecological integrity are the same features that strengthen long-term resilience.
-          </p>
-          <p class="text-muted">Wetlands, recharge areas, fire-adapted ecosystems, working lands, and connected natural landscapes provide measurable benefits across multiple hazards. By translating these benefits into parcel-scale resilience scores, the Resilience Scorecard makes resilience visible, measurable, and actionable.</p>
-          <p class="text-muted">The result is a practical decision-support tool that supports strategic conservation, resilience investments, and long-term landscape stewardship while strengthening the connection between military readiness, ecosystem function, and community resilience throughout Central Florida.</p>
+            <article id="wildfire-map" class="ap-map-card">
+              <button class="btn p-0 border-0 map-thumb" data-index="1" aria-label="Open Wildfire Resilience map">
+                <img src="../assets/APAFRSL_wildfire.png" alt="Wildfire Resilience map for the Avon Park Air Force Range Sentinel Landscape" loading="lazy">
+              </button>
+              <div class="ap-map-card-body">
+                <h3>Wildfire Resilience</h3>
+                <p>Living with fire. Fire-adapted ecosystems and actively managed landscapes show how ecological condition, prescribed fire, fuel management, and long-term stewardship influence resilience.</p>
+              </div>
+            </article>
 
-          <h4 id="maps" class="mt-3">Maps</h4>
-          <p class="text-muted">Open a map to view it full-size.</p>
-
-          <div class="map-gallery mb-3">
-            <div class="d-flex gap-2 flex-wrap">
-              <button class="btn p-0 border-0 gallery-thumb" data-index="0" aria-label="Open map 1">
-                <img src="https://placehold.co/520x320?text=Avon+Park+Drought" class="rounded" alt="Drought map">
+            <article id="weather-map" class="ap-map-card">
+              <button class="btn p-0 border-0 map-thumb" data-index="2" aria-label="Open Extreme Weather Resilience map">
+                <img src="../assets/APAFRSL_extreme_weather.png" alt="Extreme Weather Resilience map for the Avon Park Air Force Range Sentinel Landscape" loading="lazy">
               </button>
-              <button class="btn p-0 border-0 gallery-thumb" data-index="1" aria-label="Open map 2">
-                <img src="https://placehold.co/520x320?text=Avon+Park+Extreme+Heat" class="rounded" alt="Extreme heat map">
-              </button>
-              <button class="btn p-0 border-0 gallery-thumb" data-index="2" aria-label="Open map 3">
-                <img src="https://placehold.co/520x320?text=Avon+Park+Flooding" class="rounded" alt="Flood map">
-              </button>
-              <button class="btn p-0 border-0 gallery-thumb" data-index="3" aria-label="Open map 4">
-                <img src="https://placehold.co/520x320?text=Avon+Park+Wildfire" class="rounded" alt="Wildfire map">
-              </button>
-              <button class="btn p-0 border-0 gallery-thumb" data-index="4" aria-label="Open map 5">
-                <img src="https://placehold.co/520x320?text=Avon+Park+Land+Degradation" class="rounded" loading="lazy" alt="Land degradation map">
-              </button>
-            </div>
+              <div class="ap-map-card-body">
+                <h3>Extreme Weather Resilience</h3>
+                <p>Built to weather the storm. Natural infrastructure and landscape condition influence how well different parts of the region absorb and recover from severe weather and repeated storm impacts.</p>
+              </div>
+            </article>
           </div>
+        </section>
 
-          <div class="modal fade" id="avonMapModal" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog modal-xl modal-dialog-centered">
-              <div class="modal-content bg-transparent border-0">
-                <div class="modal-body p-0">
-                  <div id="avonMapCarousel" class="carousel slide" data-bs-ride="false">
-                    <div class="carousel-inner">
-                      <div class="carousel-item active">
-                        <img src="https://placehold.co/1600x900?text=Avon+Park+Drought+Resilience" class="d-block w-100" alt="Drought resilience" loading="lazy">
-                        <div class="carousel-caption-overlay">Parcel-scale drought resilience emphasizing hydrologic buffering and landscape condition.</div>
-                      </div>
-                      <div class="carousel-item">
-                        <img src="https://placehold.co/1600x900?text=Avon+Park+Extreme+Heat+Resilience" class="d-block w-100" alt="Extreme heat resilience" loading="lazy">
-                        <div class="carousel-caption-overlay">Extreme heat resilience informed by canopy structure, surface condition, and moisture context.</div>
-                      </div>
-                      <div class="carousel-item">
-                        <img src="https://placehold.co/1600x900?text=Avon+Park+Flood+Resilience" class="d-block w-100" alt="Flood resilience" loading="lazy">
-                        <div class="carousel-caption-overlay">Flood resilience reflecting wetland connectivity, storage potential, and floodplain context.</div>
-                      </div>
-                      <div class="carousel-item">
-                        <img src="https://placehold.co/1600x900?text=Avon+Park+Wildfire+Resilience" class="d-block w-100" alt="Wildfire resilience" loading="lazy">
-                        <div class="carousel-caption-overlay">Wildfire resilience based on landscape structure, fuel-related indicators, and exposure context.</div>
-                      </div>
-                      <div class="carousel-item">
-                        <img src="https://placehold.co/1600x900?text=Avon+Park+Land+Degradation+Resilience" class="d-block w-100" alt="Land degradation resilience" loading="lazy">
-                        <div class="carousel-caption-overlay">Land degradation resilience reflecting erosion susceptibility, cover stability, and disturbance pressure.</div>
-                      </div>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#avonMapCarousel" data-bs-slide="prev">
-                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                      <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#avonMapCarousel" data-bs-slide="next">
-                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                      <span class="visually-hidden">Next</span>
-                    </button>
-                  </div>
-                </div>
-                <div class="modal-footer border-0 justify-content-center">
-                  <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-                </div>
+        <!-- CLOSING -->
+        <section class="ap-closing">
+          <h2 class="h3">Planning for What Comes Next</h2>
+          <p>The Avon Park Air Force Range Sentinel Landscape assessment demonstrates that many of the landscape features supporting military readiness, agricultural lands, and ecological integrity are the same features that strengthen long-term resilience.</p>
+          <p>Wetlands are storing water. Recharge areas are supporting groundwater systems. Fire-managed landscapes are maintaining ecological function. Working and natural lands are keeping large portions of the landscape connected.</p>
+          <p>These systems provide measurable benefits across multiple hazards. By translating those benefits into parcel-scale scores, the Resilience Scorecard makes resilience <strong>visible, measurable, and actionable</strong>.</p>
+          <p>For military installations, conservation organizations, local governments, landowners, and regional partners, that creates an opportunity to look beyond individual hazards and coordinate strategic conservation, resilience investments, natural infrastructure, and long-term landscape stewardship.</p>
+          <p>The result is more than a set of maps. It is a decision-support framework that strengthens the connection between <strong>military readiness, ecosystem function, and community resilience throughout Central Florida.</strong></p>
+          <p>Resilience here is not about eliminating fire, floods, or extreme weather.</p>
+          <p class="ap-closing-line">It is about maintaining a landscape capable of living with them.</p>
+        </section>
+
+        <p class="text-muted">Downloads and supporting files are available in the panel to the right.</p>
+
+      </div><!-- /.case-main -->
+
+      <!-- SIDEBAR -->
+      <aside class="case-sidebar">
+        <div class="sticky">
+
+          
+
+          <div class="card mb-3">
+            <div class="card-body">
+              <h5 class="card-title mb-2">Landscape Profile</h5>
+              <p class="small text-muted mb-3">Explore the military mission, working lands, water resources, conservation priorities, and partnerships that define the Avon Park Air Force Range Sentinel Landscape.</p>
+              <a href="../assets/avonpark_sl_profile_20260316.pdf" target="_blank" rel="noopener noreferrer" class="profile-preview-frame d-block mb-3">
+                <img src="../assets/apafrsl.jpg" alt="Avon Park profile preview" class="img-fluid profile-preview-image" loading="lazy">
+              </a>
+              <div class="d-grid gap-2">
+                <a href="https://sentinellandscapes.org/landscapes/avon-park-air-force-range/" class="btn btn-outline-primary btn-sm" target="_blank" rel="noopener noreferrer"><i class="bi bi-box-arrow-up-right me-1"></i>Avon Park Sentinel Landscape</a>
+                <a href="../assets/avonpark_sl_profile_20260316.pdf" class="btn btn-primary btn-sm" download><i class="bi bi-file-earmark-pdf me-1"></i>Download Profile (PDF)</a>
+                <a href="../assets/apafrsl.jpg" class="btn btn-outline-primary btn-sm" target="_blank" rel="noopener noreferrer"><i class="bi bi-image me-1"></i>Open Preview Image</a>
               </div>
             </div>
           </div>
 
-          <p class="text-muted">Downloads and supporting files are available in the panel to the right.</p>
-        </div>
-
-        <div class="case-sidebar">
-          <div class="sticky">
-            <div class="card mb-3">
-              <div class="card-body">
-                <h5 class="card-title">Key Facts</h5>
-                <ul class="case-facts mt-2">
-                  <li><strong>Objective:</strong> Evaluate parcel-scale resilience to support military readiness, conservation planning, and long-term landscape stewardship.</li>
-                  <li><strong>Geography:</strong> APAFRSL and the CFRPC service area across five counties in Florida's Heartland region.</li>
-                  <li><strong>Core Hazards:</strong> Wildfire, flooding, and extreme weather.</li>
-                  <li><strong>Approach:</strong> Integrates natural infrastructure, hydrologic function, landscape condition, and hazard exposure.</li>
-                  <li><strong>Scoring Framework:</strong> Landscape indicators -> parcel summaries (zonal statistics) -> 1-5 hazard scores -> composite resilience framework.</li>
-                  <li><strong>Use Case:</strong> Collaborative decision support for military installations, local governments, conservation partners, landowners, and regional planners.</li>
-                </ul>
+          <div class="card mb-3 ap-sidebar-nav">
+            <div class="card-body">
+              <h5 class="card-title">Explore the Story</h5>
+              <div class="list-group list-group-flush">
+                <a href="#water" class="list-group-item list-group-item-action"><i class="bi bi-water me-2"></i>When Water Has Somewhere to Go</a>
+                <a href="#fire" class="list-group-item list-group-item-action"><i class="bi bi-fire me-2"></i>Living With Fire</a>
+                <a href="#weather" class="list-group-item list-group-item-action"><i class="bi bi-cloud-rain-heavy me-2"></i>Built to Weather the Storm</a>
+                <a href="#stewardship" class="list-group-item list-group-item-action"><i class="bi bi-tree me-2"></i>Stewardship Changes the Map</a>
+                <a href="#maps" class="list-group-item list-group-item-action"><i class="bi bi-map me-2"></i>Compare the Maps</a>
               </div>
             </div>
+          </div>
 
-            <div class="frameworks-panel case-downloads mb-3">
-              <div class="panel-header">
-                <strong>Downloads</strong>
-                <div class="small text-muted">Supporting materials for APAFRSL</div>
-              </div>
+          <div class="card mb-3">
+            <div class="card-body">
+              <h5 class="card-title">Key Facts</h5>
+              <ul class="case-facts mt-2">
+                <li><strong>Objective:</strong> Evaluate parcel-scale resilience to support military readiness, conservation planning, and long-term landscape stewardship.</li>
+                <li><strong>Approach:</strong> Integrates natural infrastructure, hydrologic function, landscape condition, and hazard exposure.</li>
+                <li><strong>Scoring Framework:</strong> Landscape indicators &rarr; parcel summaries &rarr; 1–5 hazard scores &rarr; composite resilience framework.</li>
+                <li><strong>Use Case:</strong> Collaborative decision support for military installations, local governments, conservation partners, landowners, and regional planners.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="frameworks-panel case-downloads mb-3">
+            <div class="panel-header">
+              <strong>Resources</strong>
+              <div class="small text-muted">Supporting materials for APAFRSL</div>
+            </div>
               <div class="mt-3 d-grid gap-2">
-                <a href="../how-to.html" class="btn btn-primary"><i class="bi bi-diagram-3 me-2"></i>Scoring Framework Templates</a>
-                <a href="../assets/avon-park_presentation.pdf" class="btn btn-primary" download><i class="bi bi-file-earmark-pdf me-2"></i>Presentation (PDF)</a>
-                <a href="../assets/avon-park_news.pdf" class="btn btn-primary" download><i class="bi bi-file-earmark-pdf me-2"></i>News Article (PDF)</a>
-              </div>
+              <a href="../how-to.html" class="btn btn-primary"><i class="bi bi-diagram-3 me-2"></i>Scoring Framework Templates</a>
+              <a href="../assets/avonpark_sl_profile_20260316.pdf" class="btn btn-primary" download><i class="bi bi-file-earmark-pdf me-2"></i>Sentinel Landscape Profile (PDF)</a>
+              <a href="../assets/apafrsl.jpg" class="btn btn-primary" target="_blank" rel="noopener noreferrer"><i class="bi bi-image me-2"></i>Profile Photo (JPG)</a>
+              <a href="../assets/avon-park_presentation.pdf" class="btn btn-primary" download><i class="bi bi-file-earmark-pdf me-2"></i>Presentation (PDF)</a>
+              <a href="../assets/avon-park_news.pdf" class="btn btn-primary" download><i class="bi bi-file-earmark-pdf me-2"></i>News Article (PDF)</a>
             </div>
           </div>
-        </div>
 
-      </div>
-    </div>
+        </div>
+      </aside><!-- /.case-sidebar -->
+
+    </div><!-- /.case-content -->
   </div>
 </main>
 
-<!-- Footer -->
+<!-- Map Modal -->
+<div class="modal fade" id="avonMapModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content bg-transparent border-0">
+      <div class="modal-body p-0">
+        <div id="avonMapCarousel" class="carousel slide" data-bs-ride="false">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="../assets/APAFRSL_flood.png" class="d-block w-100" alt="Flood Resilience map" loading="lazy">
+              <div class="carousel-caption-overlay">Flood resilience highlights wetlands, connected water systems, recharge areas, and landscapes that store and move water.</div>
+            </div>
+            <div class="carousel-item">
+              <img src="../assets/APAFRSL_wildfire.png" class="d-block w-100" alt="Wildfire Resilience map" loading="lazy">
+              <div class="carousel-caption-overlay">Wildfire resilience reflects fire-adapted ecosystems, active management, fuel conditions, and landscape stewardship.</div>
+            </div>
+            <div class="carousel-item">
+              <img src="../assets/APAFRSL_extreme_weather.png" class="d-block w-100" alt="Extreme Weather Resilience map" loading="lazy">
+              <div class="carousel-caption-overlay">Extreme weather resilience reflects how natural infrastructure and landscape condition support the ability to absorb and recover from recurring storms.</div>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#avonMapCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#avonMapCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+      <div class="modal-footer border-0 justify-content-center">
+        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Photo Modal -->
+<div class="modal fade" id="avonPhotoModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content bg-transparent border-0">
+      <div class="modal-body p-0">
+        <div id="avonPhotoCarousel" class="carousel slide" data-bs-ride="false">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="../assets/Landscape.jpg" class="d-block w-100" alt="Avon Park Air Force Range Sentinel Landscape" loading="lazy">
+              <div class="carousel-caption-overlay">A landscape shaped by water, fire, weather, working lands, and long-term stewardship.</div>
+            </div>
+            <div class="carousel-item">
+              <img src="../assets/150609-F-LM669-248.jpg" class="d-block w-100" alt="Wetlands and lakes landscape" loading="lazy">
+              <div class="carousel-caption-overlay">Wetlands and connected lakes support water storage, hydrologic function, and regional resilience.</div>
+            </div>
+            <div class="carousel-item">
+              <img src="../assets/Kissimmee River3.JPG" class="d-block w-100" alt="Kissimmee River corridor" loading="lazy">
+              <div class="carousel-caption-overlay">Connected river and wetland systems provide natural infrastructure across the region.</div>
+            </div>
+            <div class="carousel-item">
+              <img src="../assets/tnc_96731675_Full.jpg" class="d-block w-100" alt="Conservation landscape" loading="lazy">
+              <div class="carousel-caption-overlay">Large conservation and natural landscapes help maintain ecological function and connectivity.</div>
+            </div>
+            <div class="carousel-item">
+              <img src="../assets/prescribed-burn-hero.jpg" class="d-block w-100" alt="Prescribed burn management" loading="lazy">
+              <div class="carousel-caption-overlay">Prescribed fire and active management sustain fire-adapted ecosystems and reduce hazardous fuel accumulation.</div>
+            </div>
+            <div class="carousel-item">
+              <img src="../assets/C+Ward+Arbuckle+Ranch.webp" class="d-block w-100" alt="Working ranch" loading="lazy">
+              <div class="carousel-caption-overlay">Working lands help maintain open space, ecological connectivity, and landscape function.</div>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#avonPhotoCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#avonPhotoCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+      <div class="modal-footer border-0 justify-content-center">
+        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Standardized footer (spotlight subpage) -->
 <footer class="bg-dark text-white py-4">
   <div class="container">
-    <div class="footer-logos" aria-label="Partner Logos">
-      <span class="footer-logo-link"><img src="../assets/camp_ripley_logo.png" alt="Camp Ripley" class="footer-logo"></span>
-      <span class="footer-logo-link"><img src="../assets/SL_Lockups_CampRipley_DOW_stacked_top.png" alt="Camp Ripley Sentinel Landscape Partner Lockup" class="footer-logo"></span>
-      <span class="footer-logo-link"><img src="../assets/REPI_logo.png" alt="REPI" class="footer-logo"></span>
-      <span class="footer-logo-link"><img src="../assets/lwg_logo.png" alt="Land and Water Group" class="footer-logo"></span>
-      <span class="footer-logo-link"><img src="../assets/morrison_logo1.png.jpg" alt="Morrison" class="footer-logo"></span>
-      <span class="footer-logo-link"><img src="../assets/nrcs_logo.jpg" alt="NRCS" class="footer-logo"></span>
+    <div class="row">
+      <div class="col-lg-6 mb-3 mb-lg-0">
+        <h5>Resilience Scoring Dashboard</h5>
+        <p class="mb-0">A tool developed for Sentinel Landscapes to assess natural infrastructure and enhance community resilience to extreme weather hazards.</p>
+      </div>
+      <div class="col-lg-3 mb-3 mb-lg-0">
+        <h6>Quick Links</h6>
+        <ul class="list-unstyled">
+          <li><a href="https://sentinellandscapes.org" class="text-white-50" target="_blank">Sentinel Landscapes</a></li>
+          <li><a href="../how-to.html" class="text-white-50">Documentation</a></li>
+          <li><a href="../survey.html" class="text-white-50">Feedback</a></li>
+          <li><a href="../contact.html" class="text-white-50">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3">
+        <h6>Connect</h6>
+        <div class="d-flex gap-3">
+          <a href="#" class="text-white-50"><i class="bi bi-github fs-4"></i></a>
+          <a href="#" class="text-white-50"><i class="bi bi-envelope fs-4"></i></a>
+        </div>
+      </div>
     </div>
+
+    <div class="d-flex justify-content-center mt-4">
+      <div class="bg-white rounded-3 p-3 w-100">
+        <div class="d-flex justify-content-center align-items-center gap-3 flex-wrap">
+          <a href="#" class="footer-logo-link"><img src="../assets/camp_ripley_logo.png" alt="Camp Ripley" class="footer-logo"></a>
+          <a href="#" class="footer-logo-link"><img src="../assets/SL_Lockups_CampRipley_DOW_stacked_top.png" alt="Camp Ripley Sentinel Landscape Partner Lockup" class="footer-logo"></a>
+          <a href="#" class="footer-logo-link"><img src="../assets/REPI_logo.png" alt="REPI" class="footer-logo"></a>
+          <a href="#" class="footer-logo-link"><img src="../assets/lwg_logo.png" alt="LegacyWorks Group" class="footer-logo"></a>
+          <a href="#" class="footer-logo-link"><img src="../assets/morrison_logo1.png.jpg" alt="Morrison" class="footer-logo"></a>
+          <a href="#" class="footer-logo-link"><img src="../assets/nrcs_logo.jpg" alt="NRCS" class="footer-logo"></a>
+        </div>
+      </div>
+    </div>
+
     <hr class="my-3 bg-white">
     <div class="text-center text-white-50">
       <small>&copy; 2026 Sentinel Landscapes. All rights reserved.</small>
@@ -316,30 +508,55 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-// Wire gallery thumbnails to open modal and jump carousel
 document.addEventListener('DOMContentLoaded', function () {
-  var modalEl = document.getElementById('avonMapModal');
-  var carouselEl = document.getElementById('avonMapCarousel');
-  var carousel = null;
-  if (carouselEl) {
-    carousel = bootstrap.Carousel.getInstance(carouselEl) || new bootstrap.Carousel(carouselEl, { ride: false });
-  }
+  // Map gallery
+  var mapModalEl = document.getElementById('avonMapModal');
+  var mapCarouselEl = document.getElementById('avonMapCarousel');
+  var mapCarousel = mapCarouselEl
+    ? (bootstrap.Carousel.getInstance(mapCarouselEl) || new bootstrap.Carousel(mapCarouselEl, { ride: false }))
+    : null;
 
-  document.querySelectorAll('.gallery-thumb').forEach(function (btn) {
+  document.querySelectorAll('.map-thumb').forEach(function (btn) {
     btn.addEventListener('click', function () {
+      if (!mapModalEl) return;
       var idx = Number(btn.getAttribute('data-index') || 0);
-      var modal = new bootstrap.Modal(modalEl);
+      var modal = bootstrap.Modal.getOrCreateInstance(mapModalEl);
       modal.show();
-      setTimeout(function () { if (carousel) carousel.to(idx); }, 50);
+      setTimeout(function () {
+        if (mapCarousel) mapCarousel.to(idx);
+      }, 50);
     });
   });
 
+  // Photo gallery
+  var photoModalEl = document.getElementById('avonPhotoModal');
+  var photoCarouselEl = document.getElementById('avonPhotoCarousel');
+  var photoCarousel = photoCarouselEl
+    ? (bootstrap.Carousel.getInstance(photoCarouselEl) || new bootstrap.Carousel(photoCarouselEl, { ride: false }))
+    : null;
+
+  document.querySelectorAll('.photo-thumb').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      if (!photoModalEl) return;
+      var idx = Number(btn.getAttribute('data-index') || 0);
+      var modal = bootstrap.Modal.getOrCreateInstance(photoModalEl);
+      modal.show();
+      setTimeout(function () {
+        if (photoCarousel) photoCarousel.to(idx);
+      }, 50);
+    });
+  });
+
+  // Make preview image open the photo modal at the same slide (previously data-index=1)
   var preview = document.getElementById('avonMapPreview');
   if (preview) {
     preview.addEventListener('click', function () {
-      var modal = new bootstrap.Modal(modalEl);
+      if (!photoModalEl) return;
+      var modal = bootstrap.Modal.getOrCreateInstance(photoModalEl);
       modal.show();
-      setTimeout(function () { if (carousel) carousel.to(0); }, 50);
+      setTimeout(function () {
+        if (photoCarousel) photoCarousel.to(1);
+      }, 50);
     });
   }
 });
