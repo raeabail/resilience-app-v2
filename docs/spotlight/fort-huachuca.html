@@ -15,112 +15,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="../style.css"/>
-  <style>
-    .map-ref-chip {
-      display: inline-block;
-      margin-left: 0.25rem;
-      padding: 0.12rem 0.45rem;
-      border-radius: 999px;
-      font-size: 0.82rem;
-      font-style: normal;
-      font-weight: 600;
-      line-height: 1.25;
-      border: 1px solid transparent;
-      white-space: nowrap;
-    }
-
-    .map-ref-drought {
-      background: #fef3c7;
-      color: #92400e;
-      border-color: #fcd34d;
-    }
-
-    .map-ref-heat {
-      background: #ffedd5;
-      color: #9a3412;
-      border-color: #fdba74;
-    }
-
-    .map-ref-wildfire {
-      background: #fee2e2;
-      color: #991b1b;
-      border-color: #fca5a5;
-    }
-
-    .map-ref-general {
-      background: #e0f2fe;
-      color: #075985;
-      border-color: #7dd3fc;
-      text-decoration: none;
-    }
-
-    .map-card {
-      border: 1px solid rgba(15, 23, 42, 0.12);
-      border-radius: 14px;
-      overflow: hidden;
-      background: #ffffff;
-      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
-      height: 100%;
-    }
-
-    .map-card-top {
-      min-height: 110px;
-      padding: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.75rem;
-    }
-
-    .map-card-top h6 {
-      margin: 0;
-      font-size: 1.05rem;
-      line-height: 1.3;
-    }
-
-    .map-card-icon {
-      font-size: 1.4rem;
-      opacity: 0.9;
-      flex-shrink: 0;
-    }
-
-    .map-card-drought .map-card-top {
-      background: linear-gradient(145deg, #fef3c7 0%, #fde68a 100%);
-      color: #78350f;
-    }
-
-    .map-card-heat .map-card-top {
-      background: linear-gradient(145deg, #ffedd5 0%, #fdba74 100%);
-      color: #7c2d12;
-    }
-
-    .map-card-wildfire .map-card-top {
-      background: linear-gradient(145deg, #fee2e2 0%, #fca5a5 100%);
-      color: #7f1d1d;
-    }
-
-    .map-card-body {
-      padding: 1rem;
-    }
-
-    .map-card-body p {
-      margin-bottom: 0.8rem;
-    }
-
-    .map-open-btn {
-      font-weight: 600;
-    }
-
-    .case-main .metric-card .value {
-      font-size: 2rem;
-      line-height: 1.05;
-      letter-spacing: 0.01em;
-    }
-  </style>
+  <!-- Fort Huachuca styles moved to docs/style.css -->
 </head>
 
-<body>
-
+<body class="case-theme-huachuca">
+  
 <!-- Main Navigation -->
 <nav id="mainNav" class="navbar navbar-expand-lg navbar-dark fixed-top">
   <div class="container-fluid px-4">
@@ -208,7 +107,7 @@
 
           <br>
 
-          <h5 class="mt-3">Water Shapes Everything</h5>
+          <h5 id="water-shapes" class="mt-3">Water Shapes Everything</h5>
           <p>Water is the defining resource of the Fort Huachuca Sentinel Landscape.</p>
 
           <p>Situated within the arid and semi-arid ecosystems of southeastern Arizona, the landscape depends on groundwater, mountain-front recharge, springs, cienegas, and the San Pedro River to sustain ecosystems, communities, agriculture, and military operations. Rather than measuring resilience as simply the absence of hazards, this assessment asks a different question:</p>
@@ -232,7 +131,7 @@
 
           <div class="section-sep" role="separator" aria-hidden="true"></div>
 
-          <h5 class="mt-3">What the Landscape Reveals</h5>
+          <h5 id="what-the-landscape-reveals" class="mt-3">What the Landscape Reveals</h5>
           <p>Several clear spatial patterns emerged across the assessment.</p>
 
           <ol>
@@ -284,7 +183,7 @@
 
           <div class="section-sep" role="separator" aria-hidden="true"></div>
 
-          <h5 class="mt-3">From Maps to Decisions</h5>
+          <h5 id="from-maps-to-decisions" class="mt-3">From Maps to Decisions</h5>
           <p>Every parcel received a resilience score for each hazard along with a composite resilience index that identifies areas performing consistently well across multiple environmental stressors. Comparing the individual hazard maps also reveals an important feature of landscape resilience: the same parcel may be highly resilient to one stressor while remaining vulnerable to another.</p>
 
           <p>Rather than identifying where hazards occur, the framework identifies where landscapes are best equipped to withstand them. Viewed together, the maps show where resilience is consistently strong, where vulnerabilities overlap, and where management strategies may need to respond to a specific hazard. <a href="#maps" class="map-ref-chip map-ref-general">Explore the maps below</a></p>
@@ -331,7 +230,7 @@
           </div>
           <div class="section-sep" role="separator" aria-hidden="true"></div>
 
-          <h5 class="mt-3">Why It Matters</h5>
+          <h5 id="why-it-matters" class="mt-3">Why It Matters</h5>
           <p>Military readiness at Fort Huachuca depends on more than the installation boundary.</p>
 
           <p>Groundwater sustains communities and training operations. Riparian corridors support biodiversity and moderate extreme temperatures. Mountain recharge areas replenish aquifers that maintain water availability throughout the basin. Healthy fire-adapted ecosystems reduce catastrophic wildfire risk while maintaining ecological function.</p>
@@ -359,7 +258,7 @@
                   </div>
                   <div class="map-card-body">
                     <p class="small text-muted">Water availability, groundwater-dependent ecosystems, recharge landscapes, and riparian systems contribute to higher drought resilience across portions of the Sentinel Landscape.</p>
-                    <a href="../assets/FHSL_drought.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark btn-sm map-open-btn">
+                    <a href="../assets/FHSL_drought.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark btn-sm">
                       <i class="bi bi-file-earmark-pdf me-1" aria-hidden="true"></i>Open Drought Map
                     </a>
                   </div>
@@ -374,7 +273,7 @@
                   </div>
                   <div class="map-card-body">
                     <p class="small text-muted">Thermal resilience is generally lower across the basin floor, while higher elevations, vegetation, topographic complexity, and persistent waterways create important thermal refugia.</p>
-                    <a href="../assets/FHSL_EXT.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark btn-sm map-open-btn">
+                    <a href="../assets/FHSL_EXT.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark btn-sm">
                       <i class="bi bi-file-earmark-pdf me-1" aria-hidden="true"></i>Open Extreme Heat Map
                     </a>
                   </div>
@@ -389,7 +288,7 @@
                   </div>
                   <div class="map-card-body">
                     <p class="small text-muted">Wildfire resilience reflects the region's fire-adapted ecosystems, while areas with repeated wildfire exposure show lower resilience, producing a spatial pattern distinct from drought and extreme heat.</p>
-                    <a href="../assets/FHSL_WF.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark btn-sm map-open-btn">
+                    <a href="../assets/FHSL_WF.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark btn-sm">
                       <i class="bi bi-file-earmark-pdf me-1" aria-hidden="true"></i>Open Wildfire Map
                     </a>
                   </div>
@@ -411,16 +310,16 @@
                   <div id="fortMapCarousel" class="carousel slide" data-bs-ride="false">
                     <div class="carousel-inner">
                       <div class="carousel-item active">
-                        <img src="../assets/StormClearingOverHQ_Prager.jpg" class="d-block w-100" alt="Storm clearing over HQ" loading="lazy">
-                        <div class="carousel-caption-overlay">Storm clearing over Fort Huachuca headquarters area, highlighting the dramatic basin-and-range setting.</div>
+                        <img src="../assets/FHSL_drought.png" class="d-block w-100" alt="Drought resilience map" loading="lazy" onerror="this.onerror=null;this.src='../assets/StormClearingOverHQ_Prager.jpg'">
+                        <div class="carousel-caption-overlay">Drought resilience map for Fort Huachuca (fallbacks to photo if map not present).</div>
                       </div>
                       <div class="carousel-item">
-                        <img src="../assets/HQfromEastMesa_2024-08-11_2.JPG" class="d-block w-100" alt="HQ from East Mesa" loading="lazy">
-                        <div class="carousel-caption-overlay">View from East Mesa showing terrain complexity and landscape connectivity across the installation footprint.</div>
+                        <img src="../assets/FHSL_EXT.png" class="d-block w-100" alt="Extreme heat resilience map" loading="lazy" onerror="this.onerror=null;this.src='../assets/HQfromEastMesa_2024-08-11_2.JPG'">
+                        <div class="carousel-caption-overlay">Extreme heat resilience map for Fort Huachuca (fallback to photo).</div>
                       </div>
                       <div class="carousel-item">
-                        <img src="../assets/SanRafaelValley_150ac_creditJuliusSchlosburg%20(1).jpg" class="d-block w-100" alt="San Rafael Valley" loading="lazy">
-                        <div class="carousel-caption-overlay">San Rafael Valley landscape illustrating working lands and open-space continuity in the regional system.</div>
+                        <img src="../assets/FHSL_WF.png" class="d-block w-100" alt="Wildfire resilience map" loading="lazy" onerror="this.onerror=null;this.src='../assets/SanRafaelValley_150ac_creditJuliusSchlosburg (1).jpg'">
+                        <div class="carousel-caption-overlay">Wildfire resilience map for Fort Huachuca (fallback to photo).</div>
                       </div>
                       <div class="carousel-item">
                         <img src="../assets/san pedro-3647.jpg" class="d-block w-100" alt="San Pedro corridor view 1" loading="lazy">
@@ -458,6 +357,8 @@
                 </div>
               </div>
             </div>
+
+            
           </div>
 
           <p class="text-muted">Downloads and supporting files are available in the panel to the right.</p>
@@ -468,7 +369,7 @@
             <div class="card mb-3">
               <div class="card-body">
                 <h5 class="card-title mb-2">Landscape Profile</h5>
-                <p class="small text-muted mb-3">Regional priorities, partnership context, and strategic conservation direction for implementation planning.</p>
+                <p class="small text-muted mb-3">Explore the military mission, water resources, desert ecosystems, conservation priorities, and partnerships that define the Fort Huachuca Sentinel Landscape.</p>
                 <a href="../assets/FortHuachuca_SL_Profile_20260305_2550px_Wide.jpg" target="_blank" rel="noopener noreferrer" class="profile-preview-frame d-block mb-3">
                   <img src="../assets/FortHuachuca_SL_Profile_20260305_2550px_Wide.jpg" alt="Fort Huachuca Sentinel Landscape profile" class="img-fluid profile-preview-image" loading="lazy">
                 </a>
@@ -476,6 +377,19 @@
                   <a href="https://sentinellandscapes.org/landscapes/fort-huachuca/" class="btn btn-outline-primary btn-sm" target="_blank" rel="noopener noreferrer"><i class="bi bi-box-arrow-up-right me-1"></i>Fort Huachuca Sentinel Landscape</a>
                   <a href="../assets/FortHuachuca_SL_Profile_20260317.pdf" class="btn btn-primary btn-sm" download><i class="bi bi-file-earmark-pdf me-1"></i>Download Profile (PDF)</a>
                   <a href="../assets/FortHuachuca_SL_Profile_20260305_2550px_Wide.jpg" class="btn btn-outline-primary btn-sm" target="_blank" rel="noopener noreferrer"><i class="bi bi-image me-1"></i>Open Profile Image</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="card mb-3 ap-sidebar-nav">
+              <div class="card-body">
+                <h5 class="card-title">Explore the Story</h5>
+                <div class="list-group list-group-flush">
+                  <a href="#water-shapes" class="list-group-item list-group-item-action"><i class="bi bi-water me-2"></i>Water Shapes Everything</a>
+                  <a href="#what-the-landscape-reveals" class="list-group-item list-group-item-action"><i class="bi bi-eye me-2"></i>What the Landscape Reveals</a>
+                  <a href="#from-maps-to-decisions" class="list-group-item list-group-item-action"><i class="bi bi-journal-text me-2"></i>From Maps to Decisions</a>
+                  <a href="#why-it-matters" class="list-group-item list-group-item-action"><i class="bi bi-flag me-2"></i>Why It Matters</a>
+                  <a href="#maps" class="list-group-item list-group-item-action"><i class="bi bi-map me-2"></i>Explore the Maps</a>
                 </div>
               </div>
             </div>
@@ -514,17 +428,45 @@
   </div>
 </main>
 
-<!-- Footer -->
+<!-- Standard footer with centered white logo panel (spotlight subpage) -->
 <footer class="bg-dark text-white py-4">
   <div class="container">
-    <div class="footer-logos" aria-label="Partner Logos">
-      <span class="footer-logo-link"><img src="../assets/camp_ripley_logo.png" alt="Camp Ripley" class="footer-logo"></span>
-      <span class="footer-logo-link"><img src="../assets/SL_Lockups_CampRipley_DOW_stacked_top.png" alt="Camp Ripley Sentinel Landscape Partner Lockup" class="footer-logo"></span>
-      <span class="footer-logo-link"><img src="../assets/REPI_logo.png" alt="REPI" class="footer-logo"></span>
-      <span class="footer-logo-link"><img src="../assets/lwg_logo.png" alt="Land and Water Group" class="footer-logo"></span>
-      <span class="footer-logo-link"><img src="../assets/morrison_logo1.png.jpg" alt="Morrison" class="footer-logo"></span>
-      <span class="footer-logo-link"><img src="../assets/nrcs_logo.jpg" alt="NRCS" class="footer-logo"></span>
+    <div class="row">
+      <div class="col-lg-6 mb-3 mb-lg-0">
+        <h5>Resilience Scoring Dashboard</h5>
+        <p class="mb-0">A tool developed for Sentinel Landscapes to assess natural infrastructure and enhance community resilience to extreme weather hazards.</p>
+      </div>
+      <div class="col-lg-3 mb-3 mb-lg-0">
+        <h6>Quick Links</h6>
+        <ul class="list-unstyled">
+          <li><a href="https://sentinellandscapes.org" class="text-white-50" target="_blank">Sentinel Landscapes</a></li>
+          <li><a href="../how-to.html" class="text-white-50">Documentation</a></li>
+          <li><a href="../survey.html" class="text-white-50">Feedback</a></li>
+          <li><a href="../contact.html" class="text-white-50">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3">
+        <h6>Connect</h6>
+        <div class="d-flex gap-3">
+          <a href="#" class="text-white-50"><i class="bi bi-github fs-4"></i></a>
+          <a href="#" class="text-white-50"><i class="bi bi-envelope fs-4"></i></a>
+        </div>
+      </div>
     </div>
+
+    <div class="d-flex justify-content-center mt-4">
+      <div class="bg-white rounded-3 p-3 w-100">
+        <div class="d-flex justify-content-center align-items-center gap-3 flex-wrap">
+          <a href="#" class="footer-logo-link"><img src="../assets/camp_ripley_logo.png" alt="Camp Ripley" class="footer-logo"></a>
+          <a href="#" class="footer-logo-link"><img src="../assets/SL_Lockups_CampRipley_DOW_stacked_top.png" alt="Camp Ripley Sentinel Landscape Partner Lockup" class="footer-logo"></a>
+          <a href="#" class="footer-logo-link"><img src="../assets/REPI_logo.png" alt="REPI" class="footer-logo"></a>
+          <a href="#" class="footer-logo-link"><img src="../assets/lwg_logo.png" alt="Land and Water Group" class="footer-logo"></a>
+          <a href="#" class="footer-logo-link"><img src="../assets/morrison_logo1.png.jpg" alt="Morrison" class="footer-logo"></a>
+          <a href="#" class="footer-logo-link"><img src="../assets/nrcs_logo.jpg" alt="NRCS" class="footer-logo"></a>
+        </div>
+      </div>
+    </div>
+
     <hr class="my-3 bg-white">
     <div class="text-center text-white-50">
       <small>&copy; 2026 Sentinel Landscapes. All rights reserved.</small>
@@ -560,6 +502,15 @@ document.addEventListener('DOMContentLoaded', function () {
       setTimeout(function () { if (carousel) carousel.to(0); }, 50);
     });
   }
+  // Wire map-open buttons to open modal and jump to a slide
+  document.querySelectorAll('button.map-open-btn').forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      var idx = Number(btn.getAttribute('data-index') || 0);
+      var modal = new bootstrap.Modal(modalEl);
+      modal.show();
+      setTimeout(function(){ if (carousel) carousel.to(idx); }, 60);
+    });
+  });
 });
 </script>
 </body>
