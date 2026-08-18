@@ -1007,6 +1007,17 @@ section.section-how-to {
   font-weight: 700;
 }
 
+.footer-bottom {
+  margin-top: 1rem;
+  padding-top: 0.85rem;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.20);
+
+  color: rgba(255, 255, 255, 0.55);
+  text-align: center;
+  font-size: 0.88rem;
+}
+
 
 /* =========================================================
    FOOTER LINKS
@@ -1066,31 +1077,30 @@ section.section-how-to {
    ========================================================= */
 
 .partner-lockup {
-  width: min(100%, 1050px);
+  width: 100%;
   margin: 2rem auto 0;
-  padding: 1.25rem 2rem 1.4rem;
+  padding: 1rem 2rem 1rem;
 
   background: #ffffff;
-  border-radius: 10px;
-
-  box-shadow:
-    0 4px 16px rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
 }
 
 
-/* Small label above logos */
+/* =========================================================
+   PARTNER HEADING
+   ========================================================= */
 
 .partner-label {
-  margin-bottom: 1rem;
+  margin-bottom: -30px;
 
   color: #64748b;
-
   text-align: center;
   text-transform: uppercase;
 
-  font-size: 0.72rem;
+  font-size: 0.8rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.13em;
 }
 
 
@@ -1098,24 +1108,39 @@ section.section-how-to {
    PARTNER ROWS
    ========================================================= */
 
-.partner-lockup-row {
-  display: flex;
+.partner-lockup-row,
+.partner-lockup-row-secondary {
+  display: grid;
+
+  grid-template-columns: 300px 430px 300px;
+
   align-items: center;
   justify-content: center;
+  justify-items: center;
 
-  gap: 2.75rem;
-
-  width: 100%;
+  column-gap: 1.25rem;
 }
 
+
+/* Top row */
+
+/* Top row */
+.partner-lockup-row:not(.partner-lockup-row-secondary) {
+  grid-template-columns: 280px 430px 280px;
+  column-gap: 7rem;
+  margin-top: -15px;
+}
+
+
+/* Bottom row */
+
 .partner-lockup-row-secondary {
-  margin-top: 1.15rem;
-  gap: 3.25rem;
+  margin-top: -30px;
 }
 
 
 /* =========================================================
-   INDIVIDUAL PARTNER LOGOS
+   PARTNER BRANDS
    ========================================================= */
 
 .partner-brand {
@@ -1123,8 +1148,12 @@ section.section-how-to {
   align-items: center;
   justify-content: center;
 
-  flex: 0 0 auto;
+  width: 100%;
+  min-width: 0;
+
+  text-decoration: none;
 }
+
 
 .partner-brand img {
   display: block;
@@ -1132,106 +1161,129 @@ section.section-how-to {
   width: auto;
   height: auto;
 
+  max-width: 100%;
+
   object-fit: contain;
 }
 
 
-/* ---------------------------------------------------------
-   First row
-   --------------------------------------------------------- */
-
-.partner-brand-camp img {
-  max-width: 95px;
-  max-height: 56px;
-}
-
-.partner-brand-sentinel img {
-  max-width: 175px;
-  max-height: 68px;
-}
-
-.partner-brand-repi img {
-  max-width: 285px;
-  max-height: 58px;
-}
-
-
-/* ---------------------------------------------------------
-   Second row
-   --------------------------------------------------------- */
-
-.partner-brand-lwg img {
-  max-width: 145px;
-  max-height: 44px;
-}
-
-.partner-brand-morrison img {
-  max-width: 135px;
-  max-height: 44px;
-}
-
-.partner-brand-nrcs img {
-  max-width: 145px;
-  max-height: 48px;
-}
-
-
 /* =========================================================
-   FOOTER BOTTOM
+   LOGO SIZES + SMALL POSITION ADJUSTMENTS
    ========================================================= */
 
-.footer-bottom {
-  margin-top: 1.25rem;
-  padding-top: 1rem;
+/* Camp Ripley */
 
-  border-top: 1px solid rgba(255, 255, 255, 0.20);
+.partner-brand-camp img {
+  width: 280px;
+  height: auto;
 
-  color: rgba(255, 255, 255, 0.55);
-  text-align: center;
-  font-size: 0.88rem;
+  transform: translateY(30px);
 }
 
+
+/* REPI */
+
+.partner-brand-repi img {
+  width: auto;
+  height: 80px;
+
+  max-width: none;
+
+  transform: translateY(-10px);
+}
+
+
+/* NRCS */
+
+.partner-brand-nrcs img {
+  width: auto;
+  height: 70px;
+
+  max-width: none;
+
+  transform: translateY(10px);
+}
+
+
+/* Morrison Soil & Water */
+
+.partner-brand-morrison img {
+  width: auto;
+  height: 110px;
+
+  max-width: none;
+
+  transform: translateY(20px);
+}
+
+
+/* LegacyWorks Group */
+
+.partner-brand-lwg img {
+  width: auto;
+  height: 95px;
+
+  max-width: none;
+
+  transform: translateY(10px);
+  transform: translateX(30px);
+}
+
+
+/* Camp Ripley Sentinel Landscape */
+
+.partner-brand-sentinel img {
+  width: auto;
+  height: 180px;
+
+  max-width: none;
+
+  transform: translateY(-10px);
+}
 
 /* =========================================================
    TABLET
    ========================================================= */
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
 
   .partner-lockup {
-    padding: 1.2rem 1.5rem 1.35rem;
+    padding: 1.1rem 1.25rem 1.25rem;
   }
 
   .partner-lockup-row {
-    gap: 1.5rem;
+    grid-template-columns: 200px 290px 190px;
+    column-gap: 1.25rem;
   }
 
   .partner-lockup-row-secondary {
-    gap: 2rem;
+    grid-template-columns: 180px 190px 160px;
+    column-gap: 1.5rem;
+    margin-top: 0.75rem;
   }
 
   .partner-brand-camp img {
-    max-width: 78px;
-  }
-
-  .partner-brand-sentinel img {
-    max-width: 145px;
+    width: 200px;
   }
 
   .partner-brand-repi img {
-    max-width: 225px;
+    width: 290px;
+  }
+
+  .partner-brand-sentinel img {
+    width: 190px;
   }
 
   .partner-brand-lwg img {
-    max-width: 120px;
-  }
-
-  .partner-brand-morrison img {
-    max-width: 115px;
+    width: 180px;
   }
 
   .partner-brand-nrcs img {
-    max-width: 120px;
+    width: 190px;
+  }
+
+  .partner-brand-morrison img {
+    width: 160px;
   }
 }
 
@@ -1240,41 +1292,53 @@ section.section-how-to {
    MOBILE
    ========================================================= */
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
 
-  .site-footer {
-    padding-top: 1.75rem;
+  .partner-lockup {
+    padding: 1rem;
   }
 
-.partner-lockup {
-  padding: 1.15rem 2rem 1.2rem;
-}
-  .partner-lockup-row {
-    flex-wrap: wrap;
-    gap: 1rem 1.5rem;
+  .partner-label {
+    margin-bottom: 1rem;
   }
 
-.partner-lockup-row-secondary {
-  margin-top: 0.85rem;
-}
+  .partner-lockup-row,
+  .partner-lockup-row-secondary {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 
-/* Camp Ripley */
-.partner-brand-camp img {
-  max-width: 110px;
-  max-height: 62px;
-}
+    column-gap: 1rem;
+    row-gap: 1rem;
 
-/* Camp Ripley Sentinel Landscape */
-.partner-brand-sentinel img {
-  max-width: 195px;
-  max-height: 72px;
-}
+    margin-top: 0;
+  }
 
-/* NRCS */
-.partner-brand-nrcs img {
-  max-width: 130px;
-  max-height: 44px;
-}
+  .partner-lockup-row-secondary {
+    margin-top: 1rem;
+  }
+
+  .partner-brand-camp img {
+    width: 150px;
+  }
+
+  .partner-brand-repi img {
+    width: 190px;
+  }
+
+  .partner-brand-sentinel img {
+    width: 150px;
+  }
+
+  .partner-brand-lwg img {
+    width: 145px;
+  }
+
+  .partner-brand-nrcs img {
+    width: 155px;
+  }
+
+  .partner-brand-morrison img {
+    width: 140px;
+  }
 }
 
 /* =========================================
